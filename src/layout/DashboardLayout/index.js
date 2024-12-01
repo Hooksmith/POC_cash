@@ -1,56 +1,34 @@
-// import NavBar from './NavBar';
-import TopBar from './TopBar';
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-import styled from '@emotion/styled';
+import React from "react";
+import TopBar from "./TopBar";
+import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
+import { Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-import { Outlet } from 'react-router-dom';
-
-// ----------------------------------------------------------------------
-
-const APP_BAR_MOBILE = 64;
-const APP_BAR_DESKTOP = 92;
-
-const useStyles = styled(theme => ({
-  root: {
-    display: 'flex',
-    minHeight: '100%',
-    overflow: 'hidden'
-  },
-  main: {
-    flexGrow: 1,
-    overflow: 'auto',
-    minHeight: '100%',
-    paddingTop: APP_BAR_MOBILE + 40,
-    paddingBottom: theme.spacing(10),
-    [theme.breakpoints.up('lg')]: {
-      paddingTop: APP_BAR_DESKTOP + 40,
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
-    }
-  }
-}));
-
-// ----------------------------------------------------------------------
+const APP_BAR = 84;
 
 DashboardLayout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
-function DashboardLayout({ children }) {
-  const classes = useStyles();
-  const [openNav, setOpenNav] = useState(false);
-
+function DashboardLayout() {
+  const theme = useTheme();
   return (
-    <div className={classes.root}>
-      <TopBar onOpenNav={() => setOpenNav(true)} />
-      {/* <NavBar onCloseNav={() => setOpenNav(false)} isOpenNav={openNav} /> */}
-
-      <div className={classes.main}>
+    <Box>
+      <TopBar />
+      <Box
+        sx={{
+          minHeight: "100vh",
+          flexGrow: 1,
+          overflow: "auto",
+          paddingTop: `${APP_BAR + 20}px`,
+          paddingBottom: "10px",
+          background: theme.palette.secondary.lighter,
+        }}
+      >
         <Outlet />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

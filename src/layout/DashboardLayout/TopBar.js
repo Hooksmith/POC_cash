@@ -1,93 +1,121 @@
-import clsx from 'clsx';
-import React from 'react';
-// import Search from './Search';
-// import Account from './Account';
-// import DarkMode from './DarkMode';
-import PropTypes from 'prop-types';
-// import Languages from './Languages';
-// import { Icon } from '@iconify/react';
-// import Notifications from './Notifications';
-// import menu2Fill from '@iconify-icons/eva/menu-2-fill';
-// import { alpha, makeStyles } from '@material-ui/core/styles';
-import { alpha } from '@mui/material/styles';
-import styled from '@emotion/styled';
-import { Box, AppBar, Toolbar, IconButton } from '@mui/material';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import { Divider, Menu, MenuItem } from "@mui/material";
 
-// ----------------------------------------------------------------------
+const pages = [
+  { title: "Home", path: "/home" },
+  { title: "Income", path: "/income" },
+  { title: "Expense", path: "/expense" },
+  { title: "Budgets", path: "/budget" },
+];
+export default function Topbar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-const DRAWER_WIDTH = 280;
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-const useStyles = styled(theme => ({
-  root: {
-    boxShadow: 'none',
-    backdropFilter: 'blur(8px)',
-    backgroundColor: alpha(theme.palette.background.default, 0.72),
-    [theme.breakpoints.up('lg')]: {
-      width: `calc(100% - ${DRAWER_WIDTH}px)`
-    }
-  },
-  toolbar: {
-    minHeight: APPBAR_MOBILE,
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(0, 5)
-    },
-    [theme.breakpoints.up('lg')]: {
-      minHeight: APPBAR_DESKTOP
-    }
-  },
-  btnMenu: {
-    marginRight: theme.spacing(1),
-    color: theme.palette.text.primary
-  }
-}));
-
-// ----------------------------------------------------------------------
-
-TopBar.propTypes = {
-  onOpenNav: PropTypes.func,
-  className: PropTypes.string
-};
-
-function TopBar({ onOpenNav, className }) {
-  const classes = useStyles();
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
-    <AppBar className={clsx(classes.root, className)}>
-      <Toolbar className={classes.toolbar}>
-        {/* <Hidden lgUp>
-          <IconButton onClick={onOpenNav} className={classes.btnMenu}>
-            <Icon icon={menu2Fill} />
+    <AppBar position="fixed" sx={{ boxShadow: "none" }}>
+      <Toolbar
+        sx={{
+          backgroundColor: "white",
+          color: "black",
+          height: 84,
+          textTransform: "lowercase",
+        }}
+      >
+        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            aria-label="menu"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <MenuIcon />
           </IconButton>
-        </Hidden> */}
-
-        {/* <Search /> */}
-        <span>Search</span>
-        <Box sx={{ flexGrow: 1 }} />
-
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            '& > *:not(:first-of-type)': {
-              ml: {
-                xs: 0.5,
-                sm: 2,
-                lg: 3
-              }
-            }
-          }}
-        >
-            <span>Others</span>
-          {/* <Languages />
-          <Notifications />
-          <DarkMode />
-          <Account /> */}
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{ display: { xs: "block", md: "none" } }}
+          >
+            {pages.map((page, index) => (
+              <MenuItem
+                key={index}
+                onClick={handleCloseNavMenu}
+                component={Link}
+                to={page.path}
+                color="inherit"
+              >
+                {page.title}
+              </MenuItem>
+            ))}
+          </Menu>
         </Box>
+
+        <Box sx={{ flexGrow: 1 }}>
+          <Box
+            component="img"
+            alt="logo"
+            src="/logo.png"
+            sx={{ display: "flex", mr: 10 }}
+          />
+        </Box>
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          {pages.map((page, index) => (
+            <Button
+              key={index}
+              onClick={handleCloseNavMenu}
+              component={Link}
+              to={page.path}
+              color="inherit"
+              sx={{ padding: "12px 30px" }}
+            >
+              {page.title}
+            </Button>
+          ))}
+        </Box>
+        <IconButton
+          size="large"
+          edge="end"
+          aria-label="account of current user"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <Divider
+          sx={{ alignSelf: "center", height: "40%", margin: "0 4px" }}
+          orientation="vertical"
+          flexItem
+        />
+        <Button color="inherit">Logout</Button>
       </Toolbar>
     </AppBar>
   );
 }
-
-export default TopBar;
