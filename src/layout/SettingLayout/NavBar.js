@@ -1,54 +1,65 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Logo from '../../components/Logo';
-import Scrollbars from '../../components/ScrollBar';
-import { Link, Link as RouterLink, useLocation } from 'react-router-dom';
-import { alpha, Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import Logo from "../../components/Logo";
+import Scrollbars from "../../components/ScrollBar";
+import { Link, Link as RouterLink, useLocation } from "react-router-dom";
+import {
+  alpha,
+  Box,
+  Drawer,
+  Button,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 // import InboxIcon from '@mui/icons-material/Inbox';
 // import DraftsIcon from '@mui/icons-material/Drafts';
-import styled from '@emotion/styled';
-import { Button } from 'react-scroll';
+import styled from "@emotion/styled";
 
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
 
-const useStyles = styled(theme => {
-  const isLight = theme.palette.mode === 'light';
+const useStyles = styled((theme) => {
+  const isLight = theme.palette.mode === "light";
 
   return {
     drawer: {
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.up("lg")]: {
         flexShrink: 0,
-        width: DRAWER_WIDTH
-      }
+        width: DRAWER_WIDTH,
+      },
     },
     drawerPaper: {
       width: DRAWER_WIDTH,
-      background: theme.palette.background.default
+      background: theme.palette.background.default,
     },
     subHeader: {
       ...theme.typography.overline,
       marginTop: theme.spacing(3),
       marginBottom: theme.spacing(2),
       paddingLeft: theme.spacing(5),
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
     },
     account: {
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
       padding: theme.spacing(2, 2.5),
       margin: theme.spacing(1, 2.5, 5),
       borderRadius: theme.shape.borderRadiusSm,
-      background: theme.palette.grey[isLight ? 200 : 800]
+      background: theme.palette.grey[isLight ? 200 : 800],
     },
     doc: {
       padding: theme.spacing(2.5),
       borderRadius: theme.shape.borderRadiusMd,
       backgroundColor: isLight
         ? alpha(theme.palette.primary.main, 0.08)
-        : theme.palette.primary.lighter
-    }
+        : theme.palette.primary.lighter,
+    },
   };
 });
 
@@ -56,13 +67,13 @@ const useStyles = styled(theme => {
 
 NavBar.propTypes = {
   onCloseNav: PropTypes.func,
-  isOpenNav: PropTypes.bool
+  isOpenNav: PropTypes.bool,
 };
 
 function NavBar({ isOpenNav, onCloseNav }) {
   const classes = useStyles();
   const { pathname } = useLocation();
-  const displayName = "User Name"
+  const displayName = "User Name";
   const role = "Dev";
 
   useEffect(() => {
@@ -80,11 +91,7 @@ function NavBar({ isOpenNav, onCloseNav }) {
         </RouterLink>
       </Box>
 
-      <Link
-        underline="none"
-        component={RouterLink}
-        to="/login"
-      >
+      <Link underline="none" component={RouterLink} to="/login">
         <div className={classes.account}>
           {/* <MyAvatar /> */}
           <Box sx={{ ml: 2 }}>
@@ -100,22 +107,18 @@ function NavBar({ isOpenNav, onCloseNav }) {
 
       <List>
         <ListItem disablePadding>
-        <ListItemButton>
-            <ListItemIcon>
-            {/* <InboxIcon /> */}
-            </ListItemIcon>
+          <ListItemButton>
+            <ListItemIcon>{/* <InboxIcon /> */}</ListItemIcon>
             <ListItemText primary="Inbox" />
-        </ListItemButton>
+          </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-        <ListItemButton>
-            <ListItemIcon>
-            {/* <DraftsIcon /> */}
-            </ListItemIcon>
+          <ListItemButton>
+            <ListItemIcon>{/* <DraftsIcon /> */}</ListItemIcon>
             <ListItemText primary="Drafts" />
-        </ListItemButton>
+          </ListItemButton>
         </ListItem>
-    </List>
+      </List>
 
       <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
         <div className={classes.doc}>
@@ -132,11 +135,11 @@ function NavBar({ isOpenNav, onCloseNav }) {
     </Scrollbars>
   );
 
-  const isSmallScreen = useMediaQuery('(max-width: 600px)');
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
 
   return (
     <nav className={classes.drawer}>
-     {isSmallScreen ?
+      {isSmallScreen ? (
         <Drawer
           anchor="left"
           open={isOpenNav}
@@ -145,7 +148,8 @@ function NavBar({ isOpenNav, onCloseNav }) {
           classes={{ paper: classes.drawerPaper }}
         >
           {renderContent}
-        </Drawer> :
+        </Drawer>
+      ) : (
         <Drawer
           open
           anchor="left"
@@ -154,7 +158,7 @@ function NavBar({ isOpenNav, onCloseNav }) {
         >
           {renderContent}
         </Drawer>
-    }
+      )}
     </nav>
   );
 }
