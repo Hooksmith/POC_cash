@@ -5,57 +5,95 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
+import { Card, CardContent, Grid2 } from "@mui/material";
 function EditProfile() {
   return (
     <Box
       sx={{
-        padding: 4,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        alignSelf: "center",
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-        <Avatar
-          sx={{ width: 56, height: 56, mr: 2 }}
-          src="/path/to/avatar.jpg"
-        />
-        <Typography variant="h6" component="h2">
-          Phann Sothyro
-          <Typography variant="body2" color="textSecondary">
-            Phnom Penh
+      <Card sx={{ width: { xs: "95%", md: "80%" }, mt: 4 }}>
+        <CardContent>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ width: 56, height: 56, mr: 2 }} src="/avatar.png" />
+            <Typography variant="h6" component="h2">
+              Phann Sothyro
+              <Typography variant="body2" color="textSecondary">
+                Phnom Penh
+              </Typography>
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              sx={{ ml: 2 }}
+            >
+              Edit
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
+      <Card sx={{ width: { xs: "95%", md: "80%" }, mt: 4 }}>
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            Personal Information
           </Typography>
-        </Typography>
-        <Button variant="contained" color="primary" size="small" sx={{ ml: 2 }}>
-          Edit
-        </Button>
-      </Box>
-
-      <Typography variant="h6" component="h2" gutterBottom>
-        Personal Information
-      </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            defaultValue="name@gmail.com"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Phone number"
-            variant="outlined"
-            fullWidth
-            defaultValue="+855 12 345 567"
-          />
-        </Grid>
-      </Grid>
-
-      <Typography variant="h6" component="h2" gutterBottom sx={{ mt: 2 }}>
-        Privacy
-      </Typography>
-      <Grid container spacing={2}>
-        {/* ... other fields for gender, date of birth, etc. */}
-      </Grid>
+          <Grid2 container spacing={2}>
+            <Grid2 size={{ xs: 12, md: 6 }}>
+              <Typography variant="body1">Email:</Typography>
+              <Typography variant="body1">name@gmail.com</Typography>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 6 }}>
+              <Typography variant="body1">Phone number:</Typography>
+              <Typography variant="body1">+855 12 345 567</Typography>
+            </Grid2>
+          </Grid2>
+        </CardContent>
+      </Card>
+      <Card sx={{ width: { xs: "95%", md: "80%" }, mt: 4 }}>
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            Privacy
+          </Typography>
+          <Grid2 container spacing={2}>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Gender:</Typography>
+              <Typography variant="body1">Male</Typography>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Date of Birth:</Typography>
+              <Typography variant="body1">12/07/1995</Typography>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Sex:</Typography>
+              <Typography variant="body1">Male</Typography>
+            </Grid2>
+          </Grid2>
+          <Grid2 container spacing={2}>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Gender:</Typography>
+              <Typography variant="body1">Male</Typography>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Date of Birth:</Typography>
+              <Typography variant="body1">12/07/1995</Typography>
+            </Grid2>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Typography variant="body1">Sex:</Typography>
+              <Typography variant="body1">Male</Typography>
+            </Grid2>
+          </Grid2>
+        </CardContent>
+      </Card>
 
       <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
         Save Changes
