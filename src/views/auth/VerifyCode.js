@@ -1,6 +1,22 @@
+import { useTheme } from "@emotion/react";
 import { Box, TextField, Typography, Button } from "@mui/material";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function VerifyCode() {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const handleNextButtonClick = () => {
+    navigate("/new-password"); // Replace '/next-page' with your desired route
+  };
+
+  const [code, setCode] = React.useState("");
+
+  const handleChange = (event, index) => {
+    const newCode = [...code];
+    newCode[index] = event.target.value;
+    setCode(newCode.join(""));
+  };
   return (
     <Box
       sx={{
@@ -13,7 +29,7 @@ function VerifyCode() {
     >
       <Box
         sx={{
-          width: { xs: "80%", md: "400px" },
+          width: { xs: "80%", md: "40%" },
           padding: 4,
           backgroundColor: "#fff",
           borderRadius: 2,
@@ -26,36 +42,63 @@ function VerifyCode() {
           alt="DocCash Logo"
           sx={{ width: "100px", height: "auto", marginBottom: 2 }}
         />
-        <Typography variant="h4" component="h1" gutterBottom>
-          Verify Your Code
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Enter the passcode you just received on your email address ending with
-          ******in@gmail.com
-        </Typography>
-
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-          <TextField
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-            sx={{ width: "25%" }}
-          />
-          <TextField
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-            sx={{ width: "25%" }}
-          />
-          <TextField
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-            sx={{ width: "25%" }}
-          />
-          <TextField
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
-            sx={{ width: "25%" }}
-          />
+        <Box sx={{ textAlign: "center" }}>
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{
+              fontSize: {
+                xs: "16px", // For extra-small screens
+                sm: "18px", // For small screens
+                md: "20px", // For medium screens
+                lg: "24px", // For large screens
+                xl: "28px", // For extra-large screens
+              },
+            }}
+            gutterBottom
+            color={theme.palette.background.primary}
+          >
+            Verify Your Code
+          </Typography>
         </Box>
-
-        <Button variant="contained" color="primary" fullWidth>
-          Verify
-        </Button>
+        <Box sx={{ textAlign: "center", px: 8 }}>
+          <Typography variant="h6" gutterBottom>
+            Enter the passcode you just received on your email address ending
+            with ******in@gmail.com
+          </Typography>
+        </Box>
+        <Box
+          sx={{ display: "flex", justifyContent: "space-evenly", my: 4, px: 8 }}
+        >
+          {Array.from({ length: 4 }).map((_, index) => (
+            <TextField
+              key={index}
+              type="text"
+              inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+              value={code[index] || ""}
+              onChange={(event) => handleChange(event, index)}
+              sx={{
+                width: "12%",
+                border: "1px solid green",
+                borderRadius: "5px",
+                textAlign: "center",
+              }}
+            />
+          ))}
+        </Box>
+        <Box sx={{ px: 8, pb: 6 }}>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: theme.palette.background.primary,
+              color: theme.palette.text.white,
+            }}
+            fullWidth
+            onClick={handleNextButtonClick}
+          >
+            Verify
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
