@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Box } from '@mui/material';
+import React from "react";
+import PropTypes from "prop-types";
+import { Box } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
 Logo.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 function Logo({ className, ...other }) {
