@@ -1,55 +1,59 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import styled from "@emotion/styled";
-
+import React from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
-import Topbar from "../DashboardLayout/TopBar";
+import TopBar from "../DashboardLayout/TopBar";
+import { useTheme } from "@emotion/react";
+import { Box, Grid2, Typography } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-const APP_BAR_MOBILE = 64;
-const APP_BAR_DESKTOP = 92;
+const APP_BAR = 84;
 
-const useStyles = styled((theme) => ({
-  root: {
-    display: "flex",
-    minHeight: "100%",
-    overflow: "hidden",
-  },
-  main: {
-    flexGrow: 1,
-    overflow: "auto",
-    minHeight: "100%",
-    paddingTop: APP_BAR_MOBILE + 40,
-    paddingBottom: theme.spacing(10),
-    [theme.breakpoints.up("lg")]: {
-      paddingTop: APP_BAR_DESKTOP + 40,
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-    },
-  },
-}));
-
-// ----------------------------------------------------------------------
-
-SettingLayout.propTypes = {
-  children: PropTypes.node,
-};
-
-function SettingLayout({ children }) {
-  const classes = useStyles();
-  const [openNav, setOpenNav] = useState(false);
+function SettingLayout() {
+  const theme = useTheme();
 
   return (
-    <div className={classes.root}>
-      <Topbar onOpenNav={() => setOpenNav(true)} />
-      <NavBar onCloseNav={() => setOpenNav(false)} isOpenNav={openNav} />
-
-      <div className={classes.main}>
-        <Outlet />
-      </div>
-    </div>
+    <Box sx={{ background: theme.palette.background.neutral }}>
+      <TopBar />
+      <Box
+        sx={{
+          height: { xs: "85vh", md: "80vh" },
+          flexGrow: 1,
+          overflow: "auto",
+          padding: {
+            xs: `${APP_BAR - 16}px  2px`,
+            md: `${APP_BAR + 50}px  50px`,
+          },
+        }}
+      >
+        <Typography
+          sx={{
+            display: { xs: "none" },
+            fontSize: "32px",
+            fontWeight: 600,
+            lineHeight: "48px",
+            color: theme.palette.text.secondary,
+          }}
+        >
+          Setting
+        </Typography>
+        <Grid2
+          container
+          spacing={6}
+          sx={{
+            height: "100%",
+            marginTop: "16px",
+          }}
+        >
+          <Grid2 size={3}>
+            <NavBar />
+          </Grid2>
+          <Grid2 size={9}>
+            <Outlet />
+          </Grid2>
+        </Grid2>
+      </Box>
+    </Box>
   );
 }
 

@@ -39,7 +39,7 @@ const WARNING = {
 const ERROR = {
   lighter: "#FFE7D9",
   light: "#FFA48D",
-  main: "#FF4842",
+  main: "#FF4949",
   dark: "#B72136",
   darker: "#7A0C2E",
 };
@@ -51,7 +51,7 @@ const GREY = {
   300: "#DFE3E8",
   400: "#C4CDD5",
   500: "#919EAB",
-  600: "#637381",
+  600: "#757D8A",
   700: "#454F5B",
   800: "#212B36",
   900: "#161C24",
@@ -97,7 +97,7 @@ const palette = {
   background: {
     paper: "#fff",
     default: "#fff",
-    neutral: GREY[200],
+    neutral: SECONDARY.lighter,
   },
   action: {
     active: GREY[600],

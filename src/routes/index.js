@@ -16,6 +16,7 @@ import Dashboard from "../views/dashboard";
 import Income from "../views/income";
 import Expense from "../views/expense";
 import Budget from "../views/budget";
+import SettingLayout from "../layout/SettingLayout";
 
 export function renderRoutes() {
   return (
@@ -38,7 +39,7 @@ export function renderRoutes() {
         <Route path="create-budget" element={<CreateBudget />} />
         <Route path="save-budget" element={<SaveBudget />} />
       </Route>
-      <Route path="/">
+      <Route path="/" element={<SettingLayout />}>
         <Route path="edit-profile" element={<EditProfile />} />
         <Route path="category" element={<CategoryManagement />} />
       </Route>

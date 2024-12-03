@@ -23,7 +23,7 @@ function DashboardLayout() {
           overflow: "auto",
           paddingTop: `${APP_BAR + 20}px`,
           paddingBottom: "10px",
-          background: theme.palette.secondary.lighter,
+          background: theme.palette.background.neutral,
         }}
       >
         <Outlet />
