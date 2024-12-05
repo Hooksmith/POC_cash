@@ -4,9 +4,8 @@ import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Button, Card, Grid2 } from "@mui/material";
-import MoneyCard from "../../components/moneyCard";
 
-function BudgetProgress() {
+function BudgetComplete() {
   const budgetData = {
     categoryIcon: "",
     categoryName: "Bag",
@@ -15,7 +14,6 @@ function BudgetProgress() {
     description:
       "When you query timestamptz from the database, PostgreSQL converts the UTC value back to the time value of the timezone set by the database server, the user, or the current database connection.",
   };
-
   return (
     <Box
       sx={{
@@ -63,17 +61,13 @@ function BudgetProgress() {
                   {budgetData.categoryName}
                 </Typography>
               </Box>
-              <Box sx={{ mt: 4, mb: 4 }}>
-                <Typography variant="h5">Budget Goal</Typography>
-                <Typography variant="h4">$50.00 USD</Typography>
-              </Box>
             </Grid2>
             <Grid2 size={{ xs: 12, md: 3 }}></Grid2>
             <Grid2 size={{ xs: 12, md: 3 }}>
               <Box sx={{ position: "relative", display: "inline-flex", mb: 4 }}>
                 <CircularProgress
                   variant="determinate"
-                  value={70}
+                  value={100}
                   sx={(theme) => ({
                     color: "#6DB33F",
                   })}
@@ -97,26 +91,21 @@ function BudgetProgress() {
                     component="div"
                     sx={{ color: "text.secondary" }}
                   >
-                    {`70%`}
+                    {`100%`}
                   </Typography>
                 </Box>
               </Box>
             </Grid2>
           </Grid2>
+          <Box sx={{ mt: 4, mb: 4 }}>
+            <Typography variant="h5">Budget Goal</Typography>
+            <Typography variant="h4">$50.00 USD</Typography>
+          </Box>
           <Typography>Description</Typography>
           <Typography>{budgetData.description}</Typography>
-          <Grid2 container spacing={4} sx={{ mt: 4 }}>
-            <Grid2 size={{ xs: 12, md: 4 }}>
-              <MoneyCard icon="/pig.png" title="Current Money" amount={10} />
-            </Grid2>
-            <Grid2 size={{ xs: 12, md: 4 }}>
-              <MoneyCard icon="/bag.png" title="Money Left" amount={40} />
-            </Grid2>
-          </Grid2>
         </Box>
       </Card>
     </Box>
   );
 }
-
-export default BudgetProgress;
+export default BudgetComplete;

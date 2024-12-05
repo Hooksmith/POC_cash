@@ -2,8 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import { Card, CardContent, Grid2 } from "@mui/material";
 function EditProfile() {
@@ -94,10 +92,11 @@ function EditProfile() {
           </Grid2>
         </CardContent>
       </Card>
-
-      <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-        Save Changes
-      </Button>
+      <Box sx={{ width: { xs: "95%", md: "80%" }, mt: 4 }}>
+        <Button variant="contained" color="primary" fullWidth>
+          Save Changes
+        </Button>
+      </Box>
     </Box>
   );
 }

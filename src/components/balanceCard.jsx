@@ -11,9 +11,8 @@ function BalanceCard({ title, amount, percentageChange }) {
         borderRadius: 2,
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
+        // alignItems: "center",
+        // justifyContent: "center",
       }}
     >
       <Typography variant="h6" component="h2">

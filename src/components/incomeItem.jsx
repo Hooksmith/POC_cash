@@ -40,8 +40,6 @@ function IncomeItem({ category, date, description, amount }) {
             {category}
           </Typography>
         </Box>
-
-        {/*  */}
       </TableCell>
       <TableCell>{date}</TableCell>
       <TableCell>{description}</TableCell>
