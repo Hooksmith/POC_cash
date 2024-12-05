@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  InputAdornment,
   InputLabel,
   TextField,
   Typography,

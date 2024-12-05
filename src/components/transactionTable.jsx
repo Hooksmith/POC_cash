@@ -58,17 +58,7 @@ function TransactionTable() {
       status: "Completed",
     },
   ];
-  //   const [transactions, setTransactions] = React.useState([]);
-  //   const [currentPage, setCurrentPage] = React.useState(1);
-  //   const [itemsPerPage, setItemsPerPage] = React.useState(10);
-  const [searchQuery, setSearchQuery] = React.useState("");
   const [timePeriod, setTimePeriod] = React.useState("Last 30 days");
-
-  // ... (Implement data fetching and filtering logic)
-
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
   const handleTimePeriodChange = (event) => {
     setTimePeriod(event.target.value);

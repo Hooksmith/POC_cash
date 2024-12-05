@@ -1,6 +1,6 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { Box, Card, CardContent, CircularProgress, Grid2 } from "@mui/material";
+import { Box, Card, CardContent, Grid2 } from "@mui/material";
 import AnalyticsReport from "../../components/analyticsReport";
 import ExpenseSummary from "../../components/expenseSummary";
 import BalanceCard from "../../components/balanceCard";

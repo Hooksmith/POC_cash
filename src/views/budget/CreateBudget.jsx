@@ -8,47 +8,12 @@ import { Card, Grid2, InputLabel } from "@mui/material";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
-import { useTheme } from "@emotion/react";
-
 function CreateBudget() {
-  const theme = useTheme();
   const [category, setCategory] = React.useState("");
   const [dateTime, setDateTime] = React.useState(null);
   const [amount, setAmount] = React.useState("");
   const [note, setNote] = React.useState("");
-  const incomeData = [
-    {
-      category: "Salary",
-      date: "03 June 2022",
-      description: "Here is my income",
-      amount: 5000000,
-    },
-    {
-      category: "Business",
-      date: "03 June 2022",
-      description: "Here is my income",
-      amount: 5000000,
-    },
-    {
-      category: "Salary",
-      date: "03 June 2022",
-      description: "Here is my income",
-      amount: 5000000,
-    },
-    {
-      category: "Business",
-      date: "03 June 2022",
-      description: "Here is my income",
-      amount: 5000000,
-    },
-  ];
-  const handleSubmit = () => {
-    // Handle form submission here, e.g., send data to server
-    console.log("Category:", category);
-    console.log("Date Time:", dateTime);
-    console.log("Amount:", amount);
-    console.log("Note:", note);
-  };
+  
   return (
     <Box
       sx={{

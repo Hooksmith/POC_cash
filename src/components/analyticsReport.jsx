@@ -5,31 +5,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Chart } from "react-google-charts";
 import { Card } from "@mui/material";
-import {
-  LineChart,
-  lineElementClasses,
-  markElementClasses,
-} from "@mui/x-charts";
 
 function AnalyticsReport() {
-  const uData = [
-    25000, 50000, 65000, 55000, 20000, 15000, 50000, 80000, 75000, 50000, 30000,
-    120000,
-  ];
-  const xLabels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   const chartData = [
     ["Month", "Earnings"],
     ["Jan", 25000],
