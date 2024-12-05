@@ -102,6 +102,8 @@ export default function Topbar() {
         <IconButton
           size="large"
           edge="end"
+          component={Link}
+          to="/edit-profile"
           aria-label="account of current user"
           aria-controls="menu-appbar"
           aria-haspopup="true"
