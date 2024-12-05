@@ -14,14 +14,35 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import CalendarViewMonthIcon from "@mui/icons-material/CalendarViewMonth";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTheme } from "@emotion/react";
+import LogoutDialog from "../../components/LogoutDialog";
 
 // ----------------------------------------------------------------------
 
 function NavBar() {
   const theme = useTheme();
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleConfirm = () => {
+    // Handle logout logic here
+    setOpen(false);
+  };
+
   return (
     <Card sx={{ height: "100%" }}>
+      <LogoutDialog
+        open={open}
+        onClose={handleClose}
+        onConfirm={handleConfirm}
+      />
       <List
         sx={{
           display: "flex",
@@ -71,7 +92,7 @@ function NavBar() {
 
         <Divider />
 
-        <ListItem button sx={{ padding: "20px" }}>
+        <ListItem button sx={{ padding: "20px" }} onClick={handleOpen}>
           <ListItemIcon>
             <LogoutIcon />
           </ListItemIcon>
@@ -113,7 +134,7 @@ function NavBar() {
                   textDecoration: "underline",
                 }}
               >
-                Log Out
+                Delete account
               </Typography>
             }
           />
