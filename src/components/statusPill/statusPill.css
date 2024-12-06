@@ -1,0 +1,6 @@
+.status{ display: inline-block; padding: 4px 8px; min-width: 60px; text-align: center; font-size: 14px; font-weight: 600; line-height: 24px; border-radius: 4px; border-radius: 8px;
+    &.success, &.active { background-color: #DEF7EC; color: #03543F;}
+    &.fail, &.error, &.inactive { background-color: #FDE8E8; color: #9B1C1C;}
+    &.warning { background-color: rgba(255, 188, 0, 0.1); color: #FB923C;}
+    &.info { background-color: #EDEBFE; color: #5521B5;}
+}

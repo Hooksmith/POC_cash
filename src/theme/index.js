@@ -9,6 +9,16 @@ function ThemeConfig({ children }) {
   const theme = createTheme({
     palette: palette,
     breakpoints: breakpoints,
+    components: {
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: "12px",
+            boxShadow: "none",
+          },
+        },
+      },
+    },
   });
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

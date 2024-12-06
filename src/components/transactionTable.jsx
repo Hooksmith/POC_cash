@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import SearchIcon from "@mui/icons-material/Search";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import StatusPill from "../components/statusPill";
 import Pagination from "@mui/material/Pagination";
 import {
   Card,
@@ -19,9 +20,11 @@ import {
   Grid2,
   InputAdornment,
   TextField,
+  useTheme,
 } from "@mui/material";
 
 function TransactionTable() {
+  const theme = useTheme();
   const transactions = [
     {
       id: 1,
@@ -42,14 +45,14 @@ function TransactionTable() {
       description: "Payment from Bonnie Green",
       date: "Apr 23, 2021",
       amount: "$2300",
-      status: "Completed",
+      status: "Cancelled",
     },
     {
       id: 4,
       description: "Payment from Bonnie Green",
       date: "Apr 23, 2021",
       amount: "$2300",
-      status: "Completed",
+      status: "In Progress",
     },
     {
       id: 5,
@@ -74,7 +77,11 @@ function TransactionTable() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography variant="h5" gutterBottom sx={{ mb: 2, fontWeight: "700" }}>
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ mb: 2, fontWeight: "700", color: theme.palette.grey[900] }}
+      >
         Recent Transaction
       </Typography>
       <Card>
@@ -147,7 +154,8 @@ function TransactionTable() {
                   <TableCell>{transaction.date}</TableCell>
                   <TableCell>{transaction.amount}</TableCell>
                   <TableCell>
-                    <Chip label={transaction.status} />
+                    <StatusPill label={transaction.status} />
+                    {/* <Chip label={transaction.status} /> */}
                   </TableCell>
                 </TableRow>
               ))}

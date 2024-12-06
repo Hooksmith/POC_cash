@@ -4,10 +4,13 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Chart } from "react-google-charts";
+import { useTheme } from "@mui/material";
 // import { PieChart } from "react-google-charts";
 // import { PieChart } from "google-charts";
 
 function ExpenseSummary() {
+  const theme = useTheme();
+  const amount = 1800;
   const data = [
     ["Category", "Amount"],
     ["Watch", 70],
@@ -22,6 +25,14 @@ function ExpenseSummary() {
     tooltip: { trigger: "none" },
     colors: ["#6DB33F", "#8AC265", "#A7D18C"],
     chartArea: { width: "100%", height: "100%" },
+  };
+
+  const splitAmount = () => {
+    let formattedAmount = "";
+    if (typeof amount === "number") {
+      formattedAmount = amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    }
+    return formattedAmount.split(".");
   };
 
   return (
@@ -40,7 +51,26 @@ function ExpenseSummary() {
           {/* <Typography variant="body2">This Week</Typography>   */}
         </Box>
 
-        <Typography variant="h4">$1,800.00</Typography>
+        {/* <Typography variant="h4">$1,800.00</Typography> */}
+        <Typography
+          sx={{
+            color: theme.palette.primary.main,
+            fontWeight: 700,
+            fontSize: "28px",
+            lineHeight: "24px",
+            py: 2,
+          }}
+        >
+          $ {splitAmount()[0]}
+          <Typography
+            variant="span"
+            sx={{
+              color: theme.palette.grey[300],
+            }}
+          >
+            .{splitAmount()[1]}
+          </Typography>
+        </Typography>
         <Typography variant="subtitle1">10 transactions</Typography>
 
         <Box

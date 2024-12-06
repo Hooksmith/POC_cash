@@ -2,7 +2,7 @@ import { alpha } from "@mui/material";
 
 // SETUP COLORS
 const PRIMARY = {
-  lighter: "#6DB33F1A",
+  lighter: "#D7E7D9", //
   light: "#5BE584",
   main: "#6DB33F",
   dark: "#007B55",
@@ -50,11 +50,11 @@ const GREY = {
   200: "#F4F6F8",
   300: "#DFE3E8",
   400: "#C4CDD5",
-  500: "#919EAB",
+  500: "#D9D9D9", //
   600: "#757D8A",
   700: "#454F5B",
-  800: "#7B93A4",
-  900: "#324C5B",
+  800: "#111928", //
+  900: "#324C5B", //
   500_8: alpha("#919EAB", 0.08),
   500_12: alpha("#919EAB", 0.12),
   500_16: alpha("#919EAB", 0.16),

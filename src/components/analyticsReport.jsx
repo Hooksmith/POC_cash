@@ -4,9 +4,10 @@ import Typography from "@mui/material/Typography";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Chart } from "react-google-charts";
-import { Card, FormControl } from "@mui/material";
+import { Card, FormControl, useTheme } from "@mui/material";
 
 function AnalyticsReport() {
+  const theme = useTheme();
   const chartData = [
     ["Month", "Earnings"],
     ["Jan", 25000],
@@ -42,7 +43,11 @@ function AnalyticsReport() {
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom sx={{ mb: 2, fontWeight: "700" }}>
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{ mb: 2, fontWeight: "700", color: theme.palette.grey[900] }}
+      >
         Analytics Report
       </Typography>
       <Card>
