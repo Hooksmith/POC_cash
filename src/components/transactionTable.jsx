@@ -11,7 +11,15 @@ import SearchIcon from "@mui/icons-material/Search";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Pagination from "@mui/material/Pagination";
-import { Card, Checkbox, InputAdornment, TextField } from "@mui/material";
+import {
+  Card,
+  Checkbox,
+  Chip,
+  FormControl,
+  Grid2,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 
 function TransactionTable() {
   const transactions = [
@@ -66,39 +74,59 @@ function TransactionTable() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography variant="h5" component="h2" gutterBottom>
+      <Typography variant="h5" gutterBottom sx={{ mb: 2, fontWeight: "700" }}>
         Recent Transaction
       </Typography>
       <Card>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            my: 2,
-            mx: 2,
-          }}
-        >
-          <Select value={timePeriod} onChange={handleTimePeriodChange}>
-            <MenuItem value="Last 30 days">Last 30 days</MenuItem>
-          </Select>
-          <TextField
-            variant="outlined"
-            placeholder="search"
-            slotProps={{
-              input: {
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              },
-            }}
-          />
-        </Box>
+        <Grid2 container spacing={2} sx={{ px: 2, py: 2 }}>
+          <Grid2 size={{ xs: 12, md: 7 }}>
+            <FormControl size="small">
+              <Select
+                value={timePeriod}
+                onChange={handleTimePeriodChange}
+                sx={{
+                  fontSize: "12px",
+                  borderRadius: "6px",
+                }}
+              >
+                <MenuItem value="Last 30 days">Last 30 days</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid2>
+          <Grid2 size={{ xs: 12, md: 5 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+              }}
+            >
+              <TextField
+                variant="outlined"
+                placeholder="search"
+                fullWidth
+                size="small"
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+            </Box>
+          </Grid2>
+        </Grid2>
+
         <TableContainer>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead sx={{ backgroundColor: "grey" }}>
+            <TableHead
+              sx={{
+                backgroundColor: "#F9FAFB",
+              }}
+            >
               <TableRow>
                 <TableCell padding="checkbox">
                   <Checkbox />
@@ -118,17 +146,8 @@ function TransactionTable() {
                   <TableCell>{transaction.description}</TableCell>
                   <TableCell>{transaction.date}</TableCell>
                   <TableCell>{transaction.amount}</TableCell>
-                  <TableCell
-                    sx={{
-                      color:
-                        transaction.status === "Completed"
-                          ? "green"
-                          : transaction.status === "Cancelled"
-                          ? "red"
-                          : "orange",
-                    }}
-                  >
-                    {transaction.status}
+                  <TableCell>
+                    <Chip label={transaction.status} />
                   </TableCell>
                 </TableRow>
               ))}
@@ -138,7 +157,6 @@ function TransactionTable() {
       </Card>
       <Box
         sx={{
-          //   width: { xs: "95%", md: "80%" },
           display: "flex",
           justifyContent: "end",
           pt: 3,
@@ -147,7 +165,7 @@ function TransactionTable() {
       >
         <Pagination
           count={10}
-          size="small"
+          // size="small"
           siblingCount={0}
           variant="outlined"
           shape="rounded"

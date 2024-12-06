@@ -29,15 +29,17 @@ function CategoryManagement() {
         <Grid2 container spacing={2}>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <InputLabel>Icon</InputLabel>
-            <TextField select fullWidth value={"car"}>
-              <MenuItem value="none">car</MenuItem>
+            <TextField select fullWidth value={"category1"}>
+              <MenuItem value="category1">Category 1</MenuItem>
+              <MenuItem value="category2">Category 2</MenuItem>
             </TextField>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <InputLabel>Backgound Color</InputLabel>
 
             <TextField select fullWidth value={"red"}>
-              <MenuItem value="none">red</MenuItem>
+              <MenuItem value="red">red</MenuItem>
+              <MenuItem value="blue">blue</MenuItem>
             </TextField>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 12 }}>

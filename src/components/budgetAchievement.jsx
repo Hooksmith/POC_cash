@@ -13,31 +13,23 @@ function BudgetAchievement() {
   ];
 
   const chartOptions = {
-    title: "Budget Achievement",
-    legend: { position: "bottom" },
-    hAxis: { title: "Year", minValue: 0, maxValue: 120 },
-    vAxis: { title: "Achievement" },
-    series: {
-      0: { color: "#8BC34A" }, // Customize color for 2022
-      1: { color: "#8BC34A" }, // Customize color for 2023
-      2: { color: "#8BC34A" }, // Customize color for 2024
-    },
+    legend: { position: "none" },
+    hAxis: { minValue: 0, maxValue: 120 },
+    colors: ["#6DB33F", "#8AC265", "#A7D18C"],
   };
 
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography variant="body1" fontWeight="600">
           Budget achievement
         </Typography>
-        <Typography variant="h4" component="h2">
-          $1,800.00
-        </Typography>
-        <Typography variant="body2">5 achievements</Typography>
+        <Typography variant="h4">$1,800.00</Typography>
+        <Typography variant="body1">5 achievements</Typography>
         <Chart
           chartType="BarChart"
           width="100%"
-          height="300px"
+          height="150px"
           data={chartData}
           options={chartOptions}
         />

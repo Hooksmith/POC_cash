@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Chart } from "react-google-charts";
-import { Card } from "@mui/material";
+import { Card, FormControl } from "@mui/material";
 
 function AnalyticsReport() {
   const chartData = [
@@ -38,12 +38,11 @@ function AnalyticsReport() {
 
   const handleFilterChange = (event) => {
     setFilter({ ...filter, [event.target.name]: event.target.value });
-    // Update chartData based on the selected filter
   };
 
   return (
     <Box>
-      <Typography variant="h4" component="h2" gutterBottom>
+      <Typography variant="h5" gutterBottom sx={{ mb: 2, fontWeight: "700" }}>
         Analytics Report
       </Typography>
       <Card>
@@ -52,22 +51,36 @@ function AnalyticsReport() {
             display: "flex",
             flexDirection: "row",
             justifyContent: "flex-end",
+            pt: 2,
+            pr: 2,
           }}
         >
-          <Select
-            value={filter.totalEarning}
-            onChange={handleFilterChange}
-            name="totalEarning"
-          >
-            <MenuItem value="Total Earning">Total Earning</MenuItem>
-          </Select>
-          <Select
-            value={filter.timeframe}
-            onChange={handleFilterChange}
-            name="timeframe"
-          >
-            <MenuItem value="Monthly">Monthly</MenuItem>
-          </Select>
+          <FormControl size="small" sx={{ mr: 2 }}>
+            <Select
+              value={filter.totalEarning}
+              onChange={handleFilterChange}
+              name="totalEarning"
+              sx={{
+                fontSize: "12px",
+                borderRadius: "6px",
+              }}
+            >
+              <MenuItem value="Total Earning">Total Earning</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl size="small">
+            <Select
+              value={filter.timeframe}
+              onChange={handleFilterChange}
+              name="timeframe"
+              sx={{
+                fontSize: "12px",
+                borderRadius: "6px",
+              }}
+            >
+              <MenuItem value="Monthly">Monthly</MenuItem>
+            </Select>
+          </FormControl>
         </Box>
 
         <Chart

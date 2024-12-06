@@ -34,12 +34,14 @@ function ExpenseSummary() {
             alignItems: "center",
           }}
         >
-          <Typography variant="h6">Your Spending Summary</Typography>
-          <Typography variant="body2">This Week</Typography>
+          <Typography variant="subtitle1" fontWeight="bold">
+            Your Spending Summary
+          </Typography>
+          {/* <Typography variant="body2">This Week</Typography>   */}
         </Box>
 
         <Typography variant="h4">$1,800.00</Typography>
-        <Typography variant="body1">10 transactions</Typography>
+        <Typography variant="subtitle1">10 transactions</Typography>
 
         <Box
           sx={{
@@ -48,7 +50,7 @@ function ExpenseSummary() {
             alignItems: "center",
           }}
         >
-          <Box sx={{ width: "50%", mt: 2, p: 2 }}>
+          <Box sx={{ width: "50%", py: 2, px: 2 }}>
             <Chart
               chartType="PieChart"
               data={data}
