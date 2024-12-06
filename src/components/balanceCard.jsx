@@ -43,7 +43,7 @@ function BalanceCard({ index, selectedBalance, title, amount, percentageChange, 
       </Box>
       <Typography 
         sx={{ 
-          color: selectedBalance === index ? theme.palette.text.white : theme.palette.text.primary,
+          color: selectedBalance === index ? theme.palette.text.white : theme.palette.text.black,
           fontWeight: selectedBalance === index ? 700 : 400,
           fontSize: '28px', 
           lineHeight: '24px',

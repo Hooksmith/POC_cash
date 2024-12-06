@@ -54,7 +54,7 @@ const GREY = {
   600: "#757D8A",
   700: "#454F5B",
   800: "#7B93A4",
-  900: "#161C24",
+  900: "#324C5B",
   500_8: alpha("#919EAB", 0.08),
   500_12: alpha("#919EAB", 0.12),
   500_16: alpha("#919EAB", 0.16),
@@ -91,6 +91,7 @@ const palette = {
   mode: "light",
   text: {
     white: GREY[0],
+    black: GREY[900],
     primary: GREY[800],
     secondary: GREY[600],
     disabled: GREY[500],
