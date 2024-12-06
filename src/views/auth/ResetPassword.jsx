@@ -20,7 +20,7 @@ function ResetPassword() {
     >
       <Box
         sx={{
-          width: { xs: "80%", md: "40%" },
+          width: { xs: "80%", md: "50%" },
           padding: 6,
           backgroundColor: "#fff",
           borderRadius: 2,
@@ -40,18 +40,27 @@ function ResetPassword() {
             alignItems: "center",
             justifyContent: "center",
             px: 8,
+            mt: 4,
           }}
         >
           <Typography
             variant="h4"
-            component="h1"
+            fontWeight="500"
+            fontSize="40px"
             gutterBottom
             color={theme.palette.text.primary}
+            textAlign="center"
           >
             Forgot Your Password?
           </Typography>
-          <Box sx={{ textAlign: "center" }}>
-            <Typography variant="h6" gutterBottom>
+          <Box
+            sx={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography variant="h5" gutterBottom fontWeight="400">
               Please, enter your e-mail address below to receive your user and a
               new password
             </Typography>
@@ -66,8 +75,15 @@ function ResetPassword() {
             pb: 4,
           }}
         >
-          <InputLabel> Email address</InputLabel>
-          <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
+          <InputLabel fontSize="16px" fontWeight="400" sx={{ mb: 1 }}>
+            Email address
+          </InputLabel>
+          <TextField
+            variant="outlined"
+            fullWidth
+            sx={{ mb: 2 }}
+            InputProps={{ sx: { borderRadius: "12px" } }}
+          />
 
           <Button
             variant="contained"

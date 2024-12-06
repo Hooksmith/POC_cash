@@ -12,7 +12,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateTimePicker, DesktopDatePicker } from "@mui/x-date-pickers";
+import { DateTimePicker } from "@mui/x-date-pickers";
 import { useTheme } from "@emotion/react";
 import { Grid2, InputLabel, Pagination } from "@mui/material";
 import IncomeItem from "../../components/incomeItem";
@@ -177,7 +177,9 @@ function Income() {
 
         <Grid2 container spacing={2} sx={{ mb: 4, mt: 3 }}>
           <Grid2 size={{ sm: 12, md: 3 }}>
-            <InputLabel>Choose Category</InputLabel>
+            <InputLabel sx={{ fontSize: "14px", mb: 1 }}>
+              Choose Category
+            </InputLabel>
             <TextField
               select
               value={category}
@@ -192,7 +194,7 @@ function Income() {
           </Grid2>
           <Grid2 size={{ sm: 12, md: 3 }}></Grid2>
           <Grid2 size={{ sm: 12, md: 3 }}>
-            <InputLabel>Date Time</InputLabel>
+            <InputLabel sx={{ fontSize: "14px", mb: 1 }}>Date Time</InputLabel>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 sx={{

@@ -23,19 +23,21 @@ function CategoryManagement() {
       }}
     >
       <Card sx={{ width: { xs: "95%", md: "80%" }, p: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
+        <Typography variant="h5" gutterBottom fontWeight="600">
           Create a new category
         </Typography>
         <Grid2 container spacing={2}>
           <Grid2 size={{ xs: 12, md: 6 }}>
-            <InputLabel>Icon</InputLabel>
+            <InputLabel sx={{ fontSize: "20px", mb: 1 }}>Icon</InputLabel>
             <TextField select fullWidth value={"category1"}>
               <MenuItem value="category1">Category 1</MenuItem>
               <MenuItem value="category2">Category 2</MenuItem>
             </TextField>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 6 }}>
-            <InputLabel>Backgound Color</InputLabel>
+            <InputLabel sx={{ fontSize: "20px", mb: 1 }}>
+              Backgound Color
+            </InputLabel>
 
             <TextField select fullWidth value={"red"}>
               <MenuItem value="red">red</MenuItem>
@@ -43,7 +45,7 @@ function CategoryManagement() {
             </TextField>
           </Grid2>
           <Grid2 size={{ xs: 12, md: 12 }}>
-            <InputLabel>Name</InputLabel>
+            <InputLabel sx={{ fontSize: "20px", mb: 1 }}>Name</InputLabel>
 
             <TextField label="Name" variant="outlined" fullWidth />
           </Grid2>
@@ -54,16 +56,21 @@ function CategoryManagement() {
           </Grid2>
         </Grid2>
 
-        <Typography variant="h4" component="h2" gutterBottom sx={{ mt: 4 }}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          fontWeight="600"
+          sx={{ mt: 6, mb: 4 }}
+        >
           Manage Category
         </Typography>
         <TableContainer>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+            <TableHead sx={{ backgroundColor: "#F5F5F5" }}>
               <TableRow>
                 <TableCell>Icon</TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell>Note</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -92,7 +99,7 @@ function CategoryManagement() {
                   </Box>
                 </TableCell>
                 <TableCell>Transport</TableCell>
-                <TableCell align="right">
+                <TableCell>
                   <IconButton>
                     <Box
                       component="img"

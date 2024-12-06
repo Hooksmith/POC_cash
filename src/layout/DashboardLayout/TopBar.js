@@ -4,10 +4,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { Divider, Menu, MenuItem } from "@mui/material";
+import { Avatar, Divider, Menu, MenuItem } from "@mui/material";
 import { useTheme } from "@emotion/react";
 
 const pages = [
@@ -17,8 +16,8 @@ const pages = [
   { title: "Budgets", path: "/budget" },
 ];
 export default function Topbar() {
-  const theme = useTheme()
-  const [activeMenu, setActiveMenu] = React.useState(0)
+  const theme = useTheme();
+  const [activeMenu, setActiveMenu] = React.useState(0);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -30,9 +29,9 @@ export default function Topbar() {
   };
 
   const handleClickMenu = (idex) => {
-    setActiveMenu(idex)
+    setActiveMenu(idex);
     setAnchorElNav(null);
-  }
+  };
 
   return (
     <AppBar position="fixed" sx={{ boxShadow: "none" }}>
@@ -101,13 +100,16 @@ export default function Topbar() {
               component={Link}
               to={page.path}
               color="inherit"
-              sx={{ 
+              sx={{
                 fontSize: "16px",
                 lineHeight: "24px",
                 fontWeight: 600,
-                padding: "12px 30px", 
+                padding: "12px 30px",
                 textTransform: "capitalize",
-                color: activeMenu === index ? theme.palette.primary.main : theme.palette.text.primary 
+                color:
+                  activeMenu === index
+                    ? theme.palette.primary.main
+                    : theme.palette.text.primary,
               }}
             >
               {page.title}
@@ -123,24 +125,26 @@ export default function Topbar() {
           aria-controls="menu-appbar"
           aria-haspopup="true"
           color="inherit"
-          sx={{  p: 3 }}
+          sx={{ p: 3 }}
         >
-          <AccountCircle sx={{ color: theme.palette.text.primary }}/>
+          <Avatar sx={{ width: 32, height: 32, mr: 1 }} src="/avatar.png" />
         </IconButton>
         <Divider
           sx={{ alignSelf: "center", height: "40%" }}
           orientation="vertical"
           flexItem
         />
-        <Button color="inherit"
-          sx={{ 
+        <Button
+          color="inherit"
+          sx={{
             fontSize: "16px",
             lineHeight: "24px",
             fontWeight: 600,
             textTransform: "capitalize",
             p: 2,
-            color: theme.palette.text.primary 
-          }}>
+            color: theme.palette.text.primary,
+          }}
+        >
           Logout
         </Button>
       </Toolbar>

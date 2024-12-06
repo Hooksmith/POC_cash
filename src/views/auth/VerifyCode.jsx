@@ -47,14 +47,9 @@ function VerifyCode() {
             variant="h4"
             component="h1"
             sx={{
-              fontSize: {
-                xs: "16px", // For extra-small screens
-                sm: "18px", // For small screens
-                md: "20px", // For medium screens
-                lg: "24px", // For large screens
-                xl: "28px", // For extra-large screens
-              },
+              fontSize: "40px",
             }}
+            fontWeight="500"
             gutterBottom
             color={theme.palette.background.primary}
           >
@@ -62,7 +57,7 @@ function VerifyCode() {
           </Typography>
         </Box>
         <Box sx={{ textAlign: "center", px: 8 }}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom fontWeight="400">
             Enter the passcode you just received on your email address ending
             with ******in@gmail.com
           </Typography>

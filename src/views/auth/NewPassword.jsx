@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  InputLabel,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -34,8 +28,9 @@ function NewPassword() {
     >
       <Box
         sx={{
-          width: { xs: "80%", md: "40%" },
-          padding: 6,
+          width: { xs: "80%", md: "50%" },
+          pl: 6,
+          py: 6,
           backgroundColor: "#fff",
           borderRadius: 2,
           boxShadow: 2,
@@ -52,10 +47,16 @@ function NewPassword() {
             alt="DocCash Logo"
             sx={{ width: "100px", height: "auto", marginBottom: 2 }}
           />
-          <Typography variant="h4" component="h1" gutterBottom>
-            Please enter a new password below
-          </Typography>
-
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography
+              variant="h4"
+              gutterBottom
+              fontSize="40px"
+              fontWeight="400"
+            >
+              Please enter a new password below
+            </Typography>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -63,7 +64,9 @@ function NewPassword() {
               justifyContent: "space-between",
             }}
           >
-            <InputLabel>New password</InputLabel>
+            <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
+              New password
+            </InputLabel>
             <IconButton
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
@@ -76,10 +79,8 @@ function NewPassword() {
             type={showPassword ? "text" : "password"}
             variant="outlined"
             fullWidth
-            sx={{ mb: 2 }}
-            // InputProps={{
-            //   endAdornment: <InputAdornment position="end"></InputAdornment>,
-            // }}
+            sx={{ mb: 1 }}
+            InputProps={{ sx: { borderRadius: "12px" } }}
           />
           <Typography variant="body1" color="textSecondary" gutterBottom>
             Use 8 or more characters with a mix of letters, numbers & symbols
@@ -91,11 +92,12 @@ function NewPassword() {
               justifyContent: "space-between",
             }}
           >
-            <InputLabel>Confirmed password</InputLabel>
+            <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
+              Confirmed password
+            </InputLabel>
             <IconButton
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
-              // edge="end"
             >
               {showPassword ? <VisibilityOff /> : <Visibility />}
             </IconButton>
@@ -105,17 +107,13 @@ function NewPassword() {
             variant="outlined"
             fullWidth
             sx={{ mb: 2 }}
+            InputProps={{ sx: { borderRadius: "12px" } }}
           />
-
-          <Typography variant="body1" color="error" gutterBottom>
-            Error message
-          </Typography>
-
           <Button
             variant="contained"
             sx={{
               mb: 2,
-              px: 12,
+              px: 10,
               py: 2,
               backgroundColor: theme.palette.background.primary,
               color: theme.palette.text.white,

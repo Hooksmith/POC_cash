@@ -7,20 +7,23 @@ import LinearProgress, {
 import IconButton from "@mui/material/IconButton";
 import { Card, useTheme } from "@mui/material";
 
-function BudgetComplete({ title, amount, progress }) {
+function BudgetComplete({ title, amount, progress, onClickComplete }) {
   const theme = useTheme();
   return (
-    <Card>
+    <Card sx={{ borderRadius: "10px" }} onClick={onClickComplete}>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          backgroundColor: "grey",
+          backgroundColor: "#F8F8F8",
           px: 2,
+          py: 2,
         }}
       >
-        <Typography variant="h6">{title}</Typography>
+        <Typography variant="h6" fontWeight="500">
+          {title}
+        </Typography>
         <Box>
           <IconButton>
             <Box
@@ -37,7 +40,8 @@ function BudgetComplete({ title, amount, progress }) {
         sx={{
           display: "flex",
           alignItems: "center",
-          p: 3,
+          px: 3,
+          pt: 2,
           mt: 2,
           borderRadius: 2,
         }}
@@ -64,8 +68,10 @@ function BudgetComplete({ title, amount, progress }) {
           </Box>
         </Box>
         <Box>
-          <Typography variant="body1">{title}</Typography>
-          <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+          <Typography variant="body1" fontWeight="500">
+            {title}
+          </Typography>
+          <Typography variant="h6" fontWeight="400">
             Amount: ${amount}
           </Typography>
         </Box>
@@ -76,7 +82,11 @@ function BudgetComplete({ title, amount, progress }) {
           pb: 4,
         }}
       >
-        <Typography variant="body2" sx={{ mt: 2, textAlign: "right" }}>
+        <Typography
+          variant="body2"
+          fontWeight="500"
+          sx={{ mt: 2, textAlign: "right" }}
+        >
           {progress}%
         </Typography>
         <LinearProgress
@@ -99,7 +109,7 @@ function BudgetComplete({ title, amount, progress }) {
             },
           }}
         />
-        <Typography variant="body2" sx={{ mt: 2 }}>
+        <Typography variant="body2" sx={{ mt: 2 }} fontWeight="500">
           Congrats, Goal completed
         </Typography>
       </Box>

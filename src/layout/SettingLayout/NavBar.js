@@ -11,8 +11,8 @@ import {
 } from "@mui/material";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import LogoutIcon from "@mui/icons-material/Logout";
-import CalendarViewMonthIcon from "@mui/icons-material/CalendarViewMonth";
-import SettingsIcon from "@mui/icons-material/Settings";
+import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { useTheme } from "@emotion/react";
 import LogoutDialog from "../../components/LogoutDialog";
 
@@ -52,7 +52,7 @@ function NavBar() {
       >
         <ListItem component={Link} to="/edit-profile" sx={{ padding: "20px" }}>
           <ListItemIcon>
-            <SettingsIcon />
+            <SettingsOutlinedIcon />
           </ListItemIcon>
           <ListItemText
             primary={
@@ -72,7 +72,7 @@ function NavBar() {
 
         <ListItem sx={{ padding: "20px" }} component={Link} to="/category">
           <ListItemIcon>
-            <CalendarViewMonthIcon />
+            <GridViewOutlinedIcon />
           </ListItemIcon>
           <ListItemText
             primary={

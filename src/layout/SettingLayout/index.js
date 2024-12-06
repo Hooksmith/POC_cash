@@ -28,7 +28,7 @@ function SettingLayout() {
       >
         <Typography
           sx={{
-            display: { xs: "none" },
+            display: { xs: "none", md: "contents" },
             fontSize: "32px",
             fontWeight: 600,
             lineHeight: "48px",

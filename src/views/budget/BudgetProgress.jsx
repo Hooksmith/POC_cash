@@ -5,8 +5,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Button, Card, Grid2 } from "@mui/material";
 import MoneyCard from "../../components/moneyCard";
+import { useNavigate } from "react-router-dom";
 
 function BudgetProgress() {
+  const navigate = useNavigate();
   const budgetData = {
     categoryIcon: "",
     categoryName: "Bag",
@@ -25,7 +27,11 @@ function BudgetProgress() {
       }}
     >
       <Box sx={{ width: { xs: "95%", md: "60%" }, mt: 4, mb: 4 }}>
-        <Typography sx={{ textAlign: "start", mb: 2 }} variant="h4">
+        <Typography
+          sx={{ textAlign: "start", mb: 4 }}
+          variant="h4"
+          fontWeight="600"
+        >
           My Budget
         </Typography>
       </Box>
@@ -34,8 +40,20 @@ function BudgetProgress() {
           width: { xs: "95%", md: "60%" },
         }}
       >
-        <Box sx={{ p: { xs: 2, md: 8 } }}>
-          <Button variant="text" startIcon={<ArrowBackIosIcon />}>
+        <Box
+          sx={{
+            px: { xs: 2, md: 8 },
+            pb: { xs: 2, md: 8 },
+            pt: { xs: 2, md: 2 },
+          }}
+        >
+          <Button
+            variant="text"
+            startIcon={<ArrowBackIosIcon />}
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
             Back
           </Button>
           <Grid2 container spacing={2}>
@@ -44,7 +62,7 @@ function BudgetProgress() {
                 <Box
                   sx={{
                     backgroundColor: "green",
-                    padding: "4px",
+                    p: 1,
                     borderRadius: "50%",
                     justifyContent: "center",
                   }}
@@ -53,32 +71,36 @@ function BudgetProgress() {
                     component="img"
                     alt="logo"
                     src="/briefcase.png"
-                    width={24}
-                    height={19}
+                    width={25}
+                    height={25}
                     sx={{ objectFit: "scale-down" }}
                   />
                 </Box>
 
-                <Typography variant="body1" sx={{ ml: 1 }}>
+                <Typography variant="h4" sx={{ ml: 1 }} fontWeight="600">
                   {budgetData.categoryName}
                 </Typography>
               </Box>
-              <Box sx={{ mt: 4, mb: 4 }}>
-                <Typography variant="h5">Budget Goal</Typography>
-                <Typography variant="h4">$50.00 USD</Typography>
+              <Box sx={{ mt: 5, mb: 4 }}>
+                <Typography variant="h5" fontWeight="500">
+                  Budget Goal
+                </Typography>
+                <Typography variant="h2Z" fontWeight="500">
+                  $50.00 USD
+                </Typography>
               </Box>
             </Grid2>
-            <Grid2 size={{ xs: 12, md: 3 }}></Grid2>
-            <Grid2 size={{ xs: 12, md: 3 }}>
-              <Box sx={{ position: "relative", display: "inline-flex", mb: 4 }}>
+            <Grid2 size={{ xs: 12, md: 2 }}></Grid2>
+            <Grid2 size={{ xs: 12, md: 4 }}>
+              <Box sx={{ position: "relative", display: "inline-flex", mb: 2 }}>
                 <CircularProgress
                   variant="determinate"
                   value={70}
                   sx={(theme) => ({
                     color: "#6DB33F",
                   })}
-                  size={150}
-                  thickness={8}
+                  size={200}
+                  thickness={7}
                 />
                 <Box
                   sx={{
@@ -97,19 +119,23 @@ function BudgetProgress() {
                     component="div"
                     sx={{ color: "text.secondary" }}
                   >
-                    {`70%`}
+                    70%
                   </Typography>
                 </Box>
               </Box>
             </Grid2>
           </Grid2>
-          <Typography>Description</Typography>
-          <Typography>{budgetData.description}</Typography>
+          <Typography variant="h5" fontWeight="500">
+            Description
+          </Typography>
+          <Typography variant="h6" fontWeight="400">
+            {budgetData.description}
+          </Typography>
           <Grid2 container spacing={4} sx={{ mt: 4 }}>
-            <Grid2 size={{ xs: 12, md: 6, lg: 4 }}>
+            <Grid2 size={{ xs: 12, md: 6, lg: 5 }}>
               <MoneyCard icon="/pig.png" title="Current Money" amount={10} />
             </Grid2>
-            <Grid2 size={{ xs: 12, md: 6, lg: 4 }}>
+            <Grid2 size={{ xs: 12, md: 6, lg: 5 }}>
               <MoneyCard icon="/bag.png" title="Money Left" amount={40} />
             </Grid2>
           </Grid2>
