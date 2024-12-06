@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
@@ -10,25 +12,30 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
-  const navigate = useNavigate();
   const theme = useTheme();
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = React.useState(false);
+
   const handleNextButtonClick = () => {
     navigate("/home"); // Replace '/next-page' with your desired route
   };
-  const [showPassword, setShowPassword] = React.useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = () => {
+    setShowPassword((show) => !show);
+  };
+
   return (
     <Grid2 container>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2
+        size={{ xs: "none", md: 6 }}
+        sx={{ display: { xs: "none", md: "grid" } }}
+      >
         <Box
           sx={{
-            backgroundColor: theme.palette.text.primary,
-            minHeight: "100%", // Ensures the green background fills the entire screen height
+            backgroundColor: theme.palette.primary.main,
+            minHeight: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -42,20 +49,29 @@ function LoginForm() {
           />
         </Box>
       </Grid2>
+
       <Grid2 size={{ xs: 12, md: 6 }} sx={{ p: 8 }}>
         <Typography
-          variant="h4"
           gutterBottom
-          fontWeight="500"
-          color={theme.palette.text.primary}
-          sx={{ mb: 4 }}
+          sx={{
+            mb: 4,
+            fontWeight: 500,
+            fontSize: "40px",
+            color: theme.palette.primary.main,
+          }}
         >
           Sign in
         </Typography>
+
         <Button
-          variant="outlined"
           fullWidth
-          sx={{ mt: 2, borderRadius: "50px", borderColor: "#C4CFD7", py: 2 }}
+          variant="outlined"
+          sx={{
+            mt: 2,
+            borderRadius: "50px",
+            borderColor: theme.palette.grey[200],
+            py: 2,
+          }}
         >
           <Box
             component="img"
@@ -68,10 +84,16 @@ function LoginForm() {
             Continue with Google
           </Typography>
         </Button>
+
         <Button
-          variant="outlined"
           fullWidth
-          sx={{ borderRadius: "50px", borderColor: "#C4CFD7", py: 2, mt: 2 }}
+          variant="outlined"
+          sx={{
+            borderRadius: "50px",
+            borderColor: theme.palette.grey[200],
+            py: 2,
+            mt: 2,
+          }}
         >
           <Box
             component="img"
@@ -95,22 +117,28 @@ function LoginForm() {
             mt: 4,
           }}
         >
-          <hr style={{ borderTop: "1px solid #ccc", width: "40%" }} />
+          <hr
+            style={{
+              width: "40%",
+              borderTop: `1px solid ${theme.palette.grey[200]}`,
+            }}
+          />
+
           <Typography variant="body1" sx={{ margin: "0 10px" }}>
             OR
           </Typography>
-          <hr style={{ borderTop: "1px solid #ccc", width: "40%" }} />
+
+          <hr
+            style={{
+              width: "40%",
+              borderTop: `1px solid ${theme.palette.grey[200]}`,
+            }}
+          />
         </Box>
 
-        <InputLabel sx={{ fontSize: "16px", mb: 1 }} color="#666666">
-          Email Address
-        </InputLabel>
-        <TextField
-          variant="outlined"
-          fullWidth
-          sx={{ mb: 2, borderRadius: "12px" }}
-          InputProps={{ sx: { borderRadius: "12px" } }}
-        />
+        <InputLabel sx={{ fontSize: "16px", mb: 1 }}>Email Address</InputLabel>
+
+        <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
         <Box
           sx={{
             display: "flex",
@@ -127,20 +155,22 @@ function LoginForm() {
           </IconButton>
         </Box>
         <TextField
-          type={showPassword ? "text" : "password"}
-          variant="outlined"
           fullWidth
-          InputProps={{ sx: { borderRadius: "12px" } }}
-          sx={{ mb: 2, borderRadius: "12px" }}
+          sx={{ mb: 2 }}
+          type={showPassword ? "text" : "password"}
         />
 
-        <Link href="/reset-password" color={theme.palette.text.primary}>
+        <Link href="/reset-password">
           <Typography
             variant="body1"
             gutterBottom
-            sx={{ mt: 2, textAlign: "right" }}
-            color={theme.palette.text.primary}
-            fontWeight="400"
+            sx={{
+              mt: 2,
+              textAlign: "right",
+              color: theme.palette.primary.main,
+              textDecoration: "underline",
+              fontWeight: "400",
+            }}
           >
             Forgot your password?
           </Typography>
@@ -159,14 +189,10 @@ function LoginForm() {
         >
           Sign In
         </Button>
-        <Typography
-          variant="body1"
-          gutterBottom
-          color="#666666"
-          fontWeight="400"
-        >
+
+        <Typography variant="body1" gutterBottom fontWeight="400">
           Don't have an account?{" "}
-          <Link href="/register" color={theme.palette.text.primary}>
+          <Link href="/register" color={theme.palette.primary.main}>
             Sign Up
           </Link>
         </Typography>

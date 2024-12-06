@@ -13,8 +13,20 @@ function ThemeConfig({ children }) {
       MuiCard: {
         styleOverrides: {
           root: {
-            borderRadius: "12px",
+            borderRadius: 12,
             boxShadow: "none",
+          },
+        },
+      },
+      MuiTextField: {
+        defaultProps: {
+          variant: "outlined",
+        },
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-root": {
+              borderRadius: 12,
+            },
           },
         },
       },

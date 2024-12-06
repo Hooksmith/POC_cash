@@ -22,17 +22,19 @@ function DashboardHeader() {
       </Grid2>
       <Grid2 size={{ xs: 12, md: 4 }}>
         <TextField
-          placeholder="Search for transaction, item, etc"
-          size="small"
-          sx={{ backgroundColor: "white", borderRadius: 2 }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
           fullWidth
+          size="small"
+          placeholder="Search for transaction, item, etc"
+          sx={{ backgroundColor: "white" }}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            },
+          }}
         />
       </Grid2>
       <Grid2 size={{ xs: 12, md: 2 }}>

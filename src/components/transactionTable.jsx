@@ -15,7 +15,6 @@ import Pagination from "@mui/material/Pagination";
 import {
   Card,
   Checkbox,
-  Chip,
   FormControl,
   Grid2,
   InputAdornment,

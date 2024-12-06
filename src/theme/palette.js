@@ -3,10 +3,10 @@ import { alpha } from "@mui/material";
 // SETUP COLORS
 const PRIMARY = {
   lighter: "#D7E7D9", //
-  light: "#5BE584",
-  main: "#6DB33F",
-  dark: "#007B55",
-  darker: "#005249",
+  light: "#8ac265",
+  main: "#6DB33F", //
+  dark: "#62a138", //
+  darker: "#578f32",
 };
 const SECONDARY = {
   lighter: "#F4F7FA",
@@ -46,8 +46,8 @@ const ERROR = {
 
 const GREY = {
   0: "#FFFFFF",
-  100: "#F9FAFB",
-  200: "#F4F6F8",
+  100: "#E1E9EE", //
+  200: "#C4CFD7",
   300: "#DFE3E8",
   400: "#C4CDD5",
   500: "#D9D9D9", //

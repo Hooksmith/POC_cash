@@ -4,24 +4,28 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Checkbox, FormControlLabel, Grid2, Link } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 
 function CreateAccount() {
+  const theme = useTheme();
   const navigate = useNavigate();
+
   const handleNextButtonClick = () => {
     navigate("/login");
   };
-  const theme = useTheme();
+
   return (
     <Grid2 container spacing={2}>
-      <Grid2 size={{ xs: 12, md: 6 }}>
+      <Grid2
+        size={{ xs: 12, md: 6 }}
+        sx={{ display: { xs: "none", md: "grid" } }}
+      >
         <Box
           sx={{
-            backgroundColor: theme.palette.text.primary,
+            backgroundColor: theme.palette.primary.main,
             minHeight: "100%",
             display: "flex",
             justifyContent: "center",
@@ -48,7 +52,7 @@ function CreateAccount() {
           fontWeight="400"
         >
           Already have an account?{" "}
-          <Link color={theme.palette.text.primary} href="/login">
+          <Link color={theme.palette.primary.main} href="/login">
             Log in
           </Link>
         </Typography>
@@ -56,21 +60,11 @@ function CreateAccount() {
         <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
           First Name
         </InputLabel>
-        <TextField
-          variant="outlined"
-          fullWidth
-          sx={{ mb: 2 }}
-          InputProps={{ sx: { borderRadius: "12px" } }}
-        />
+        <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
         <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
           Last Name
         </InputLabel>
-        <TextField
-          variant="outlined"
-          fullWidth
-          sx={{ mb: 2 }}
-          InputProps={{ sx: { borderRadius: "12px" } }}
-        />
+        <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
         <Grid2 container spacing={2} sx={{ mb: 2 }}>
           <Grid2 size={{ xs: 12, md: 6 }}>
             <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
@@ -81,7 +75,6 @@ function CreateAccount() {
               labelId="gender-label"
               id="gender-select"
               fullWidth
-              InputProps={{ sx: { borderRadius: "12px" } }}
             >
               <MenuItem value="custom">Custom</MenuItem>
             </TextField>
@@ -90,23 +83,13 @@ function CreateAccount() {
             <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
               Date of Birth (MM/DD/YY)
             </InputLabel>
-            <TextField
-              type="date"
-              variant="outlined"
-              fullWidth
-              InputProps={{ sx: { borderRadius: "12px" } }}
-            />
+            <TextField type="date" variant="outlined" fullWidth />
           </Grid2>
         </Grid2>
         <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
           Email Address
         </InputLabel>
-        <TextField
-          variant="outlined"
-          fullWidth
-          sx={{ mb: 2 }}
-          InputProps={{ sx: { borderRadius: "12px" } }}
-        />
+        <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
         <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
           Password
         </InputLabel>
@@ -114,7 +97,6 @@ function CreateAccount() {
           type="password"
           variant="outlined"
           fullWidth
-          InputProps={{ sx: { borderRadius: "12px" } }}
           sx={{ mb: 2 }}
         />
         <InputLabel sx={{ fontSize: "16px", fontWeight: "400", mb: 1 }}>
@@ -124,7 +106,6 @@ function CreateAccount() {
           type="password"
           variant="outlined"
           fullWidth
-          InputProps={{ sx: { borderRadius: "12px" } }}
           sx={{ mb: 2 }}
         />
         <Typography variant="body1" color="textSecondary">

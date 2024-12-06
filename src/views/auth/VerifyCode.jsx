@@ -69,7 +69,6 @@ function VerifyCode() {
             <TextField
               key={index}
               type="text"
-              inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
               value={code[index] || ""}
               onChange={(event) => handleChange(event, index)}
               sx={{

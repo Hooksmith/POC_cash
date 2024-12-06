@@ -78,12 +78,7 @@ function ResetPassword() {
           <InputLabel fontSize="16px" fontWeight="400" sx={{ mb: 1 }}>
             Email address
           </InputLabel>
-          <TextField
-            variant="outlined"
-            fullWidth
-            sx={{ mb: 2 }}
-            InputProps={{ sx: { borderRadius: "12px" } }}
-          />
+          <TextField variant="outlined" fullWidth sx={{ mb: 2 }} />
 
           <Button
             variant="contained"

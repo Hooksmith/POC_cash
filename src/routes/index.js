@@ -22,7 +22,7 @@ export function renderRoutes() {
   return (
     <Routes>
       <Route>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<LoginForm />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<CreateAccount />} />
         <Route path="/new-password" element={<NewPassword />} />

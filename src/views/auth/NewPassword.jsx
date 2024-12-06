@@ -80,7 +80,6 @@ function NewPassword() {
             variant="outlined"
             fullWidth
             sx={{ mb: 1 }}
-            InputProps={{ sx: { borderRadius: "12px" } }}
           />
           <Typography variant="body1" color="textSecondary" gutterBottom>
             Use 8 or more characters with a mix of letters, numbers & symbols
@@ -107,7 +106,6 @@ function NewPassword() {
             variant="outlined"
             fullWidth
             sx={{ mb: 2 }}
-            InputProps={{ sx: { borderRadius: "12px" } }}
           />
           <Button
             variant="contained"
