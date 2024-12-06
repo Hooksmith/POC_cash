@@ -2,9 +2,9 @@ import { alpha } from "@mui/material";
 
 // SETUP COLORS
 const PRIMARY = {
-  lighter: "#C8FACD",
+  lighter: "#6DB33F1A",
   light: "#5BE584",
-  main: "#00AB55",
+  main: "#6DB33F",
   dark: "#007B55",
   darker: "#005249",
 };
@@ -90,6 +90,7 @@ const palette = {
   ...COMMON,
   mode: "light",
   text: {
+    white: GREY[0],
     primary: GREY[800],
     secondary: GREY[600],
     disabled: GREY[500],
