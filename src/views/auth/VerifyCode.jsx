@@ -73,8 +73,10 @@ function VerifyCode() {
               onChange={(event) => handleChange(event, index)}
               sx={{
                 width: "12%",
-                border: "1px solid green",
-                borderRadius: "5px",
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderRadius: "12px",
+                borderColor: theme.palette.primary.main,
                 textAlign: "center",
               }}
             />
