@@ -159,7 +159,7 @@ function Expense() {
               onClick={handleSubmit}
               sx={{
                 backgroundColor: theme.palette.background.primary,
-                color: theme.palette.text.white,
+                color: theme.palette.grey[0],
               }}
             >
               Add Expense

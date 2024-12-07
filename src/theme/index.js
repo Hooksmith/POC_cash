@@ -30,6 +30,22 @@ function ThemeConfig({ children }) {
           },
         },
       },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            fontSize: "16px",
+            fontWeight: 400,
+            color: "#324C5B",
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "capitalize",
+          },
+        },
+      },
     },
   });
 

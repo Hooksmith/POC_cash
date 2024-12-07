@@ -16,7 +16,7 @@ function BalanceCard({
   const theme = useTheme();
   const textColor =
     selectedBalance === index
-      ? theme.palette.text.white
+      ? theme.palette.grey[0]
       : theme.palette.text.primary;
   const bgColor =
     selectedBalance === index
@@ -67,7 +67,7 @@ function BalanceCard({
         sx={{
           color:
             selectedBalance === index
-              ? theme.palette.text.white
+              ? theme.palette.grey[0]
               : theme.palette.grey[900],
           fontWeight: selectedBalance === index ? 700 : 400,
           fontSize: "28px",

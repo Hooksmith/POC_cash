@@ -37,11 +37,11 @@ const WARNING = {
   darker: "#7A4F01",
 };
 const ERROR = {
-  lighter: "#FFE7D9",
-  light: "#FFA48D",
-  main: "#FF4949",
-  dark: "#B72136",
-  darker: "#7A0C2E",
+  lighter: "#f14a74",
+  light: "#ef3363",
+  main: "#EE1D52", //
+  dark: "#d61a49",
+  darker: "#be1741",
 };
 
 const GREY = {
@@ -90,8 +90,6 @@ const palette = {
   ...COMMON,
   mode: "light",
   text: {
-    white: GREY[0],
-    black: GREY[900],
     primary: GREY[800],
     secondary: GREY[600],
     disabled: GREY[500],

@@ -6,14 +6,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@emotion/react";
 
-const passwordRegex =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 function NewPassword() {
   const navigate = useNavigate();
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
+  const passwordRegex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
   const handleClickShowPassword = () => {
     setShowPassword((show) => !show);
@@ -41,7 +41,7 @@ function NewPassword() {
         sx={{
           display: "flex",
           height: "100vh",
-          backgroundColor: "#f0f0f0", // Light gray background
+          backgroundColor: theme.palette.secondary.lighter,
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -51,14 +51,14 @@ function NewPassword() {
             width: { xs: "80%", md: "50%" },
             pl: 6,
             py: 6,
-            backgroundColor: "#fff",
+            backgroundColor: theme.palette.grey[0],
             borderRadius: 2,
             boxShadow: 2,
           }}
         >
           <Box
             sx={{
-              width: { xs: "100%", md: "70%" },
+              width: { xs: "100%", md: "90%" },
             }}
           >
             <Box
@@ -98,14 +98,12 @@ function NewPassword() {
               <IconButton
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
-                // edge="end"
               >
                 {showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </Box>
             <TextField
               type={showPassword ? "text" : "password"}
-              variant="outlined"
               fullWidth
               value={password}
               onChange={handlePasswordChange}
@@ -117,9 +115,6 @@ function NewPassword() {
                   : ""
               }
             />
-            {/* <Typography variant="body2" color="textSecondary" gutterBottom>
-              Use 8 or more characters with a mix of letters, numbers & symbols
-            </Typography> */}
             <Box
               sx={{
                 display: "flex",
@@ -146,7 +141,6 @@ function NewPassword() {
             </Box>
             <TextField
               type={showPassword ? "text" : "password"}
-              variant="outlined"
               fullWidth
               sx={{ mb: 2 }}
               value={confirmPassword}
@@ -166,10 +160,7 @@ function NewPassword() {
                 mb: 2,
                 px: 10,
                 py: 2,
-                backgroundColor: theme.palette.background.primary,
-                color: theme.palette.text.white,
               }}
-              // onClick={handleNextButtonClick}
             >
               Save
             </Button>

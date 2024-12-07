@@ -13,14 +13,13 @@ import {
   useTheme,
 } from "@mui/material";
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 function LoginForm() {
   const theme = useTheme();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -33,9 +32,11 @@ function LoginForm() {
     setShowPassword((show) => !show);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
     if (email !== "" && password !== "" && emailRegex.test(email)) {
-      navigate("/home"); // Replace '/next-page' with your desired route
+      navigate("/home");
     }
   };
 
@@ -94,7 +95,11 @@ function LoginForm() {
               height={24}
               sx={{ mr: 2 }}
             />
-            <Typography color="black" variant="h6" fontWeight="400">
+            <Typography
+              variant="p"
+              fontWeight="400"
+              color={theme.palette.grey[900]}
+            >
               Continue with Google
             </Typography>
           </Button>
@@ -116,7 +121,11 @@ function LoginForm() {
               height={24}
               sx={{ mr: 2 }}
             />
-            <Typography variant="h6" fontWeight="400" color="black">
+            <Typography
+              variant="p"
+              fontWeight="400"
+              color={theme.palette.grey[900]}
+            >
               Continue with Facebook
             </Typography>
           </Button>
@@ -138,7 +147,14 @@ function LoginForm() {
               }}
             />
 
-            <Typography variant="body1" sx={{ margin: "0 10px" }}>
+            <Typography
+              variant="body1"
+              sx={{
+                margin: "0 10px",
+                fontWeight: 700,
+                color: theme.palette.grey[700],
+              }}
+            >
               OR
             </Typography>
 
@@ -150,14 +166,11 @@ function LoginForm() {
             />
           </Box>
 
-          <InputLabel sx={{ fontSize: "16px", mb: 1 }}>
-            Email Address
-          </InputLabel>
+          <InputLabel sx={{ mb: 1 }}>Email Address</InputLabel>
 
           <TextField
             required
             fullWidth
-            variant="outlined"
             sx={{ mb: 2 }}
             value={email}
             error={email !== "" && !emailRegex.test(email)}
@@ -195,7 +208,7 @@ function LoginForm() {
               variant="body1"
               gutterBottom
               sx={{
-                mt: 2,
+                my: 2,
                 textAlign: "right",
                 color: theme.palette.primary.main,
                 textDecoration: "underline",
@@ -213,14 +226,17 @@ function LoginForm() {
               mb: 2,
               px: 12,
               py: 2,
-              backgroundColor: theme.palette.background.primary,
-              color: theme.palette.text.white,
             }}
           >
             Sign In
           </Button>
 
-          <Typography variant="body1" gutterBottom fontWeight="400">
+          <Typography
+            variant="body1"
+            gutterBottom
+            fontWeight="400"
+            color={theme.palette.grey[900]}
+          >
             Don't have an account?{" "}
             <Link href="/register" color={theme.palette.primary.main}>
               Sign Up
