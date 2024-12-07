@@ -1,15 +1,11 @@
+import React from "react";
 import { useTheme } from "@emotion/react";
 import { Box, TextField, Typography, Button } from "@mui/material";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function VerifyCode() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const handleNextButtonClick = () => {
-    navigate("/new-password"); // Replace '/next-page' with your desired route
-  };
-
   const [code, setCode] = React.useState("");
 
   const handleChange = (event, index) => {
@@ -17,12 +13,17 @@ function VerifyCode() {
     newCode[index] = event.target.value;
     setCode(newCode.join(""));
   };
+
+  const handleNextButtonClick = () => {
+    navigate("/new-password");
+  };
+
   return (
     <Box
       sx={{
         display: "flex",
         height: "100vh",
-        backgroundColor: "#f0f0f0", // Light gray background
+        backgroundColor: "#f0f0f0",
         alignItems: "center",
         justifyContent: "center",
       }}
@@ -31,7 +32,7 @@ function VerifyCode() {
         sx={{
           width: { xs: "80%", md: "40%" },
           padding: 4,
-          backgroundColor: "#fff",
+          backgroundColor: theme.palette.grey[0],
           borderRadius: 2,
           boxShadow: 2,
         }}
@@ -51,19 +52,24 @@ function VerifyCode() {
             }}
             fontWeight="500"
             gutterBottom
-            color={theme.palette.background.primary}
+            color={theme.palette.primary.main}
           >
             Verify Your Code
           </Typography>
         </Box>
         <Box sx={{ textAlign: "center", px: 8 }}>
-          <Typography variant="h6" gutterBottom fontWeight="400">
+          <Typography gutterBottom fontWeight="400" color="textSecondary">
             Enter the passcode you just received on your email address ending
             with ******in@gmail.com
           </Typography>
         </Box>
         <Box
-          sx={{ display: "flex", justifyContent: "space-evenly", my: 4, px: 8 }}
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            my: 4,
+          }}
         >
           {Array.from({ length: 4 }).map((_, index) => (
             <TextField
@@ -72,12 +78,11 @@ function VerifyCode() {
               value={code[index] || ""}
               onChange={(event) => handleChange(event, index)}
               sx={{
-                width: "12%",
-                borderWidth: 1,
-                borderStyle: "solid",
-                borderRadius: "12px",
-                borderColor: theme.palette.primary.main,
-                textAlign: "center",
+                width: 60,
+                mx: 1,
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "4px",
+                },
               }}
             />
           ))}
