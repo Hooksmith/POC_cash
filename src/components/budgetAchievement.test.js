@@ -9,7 +9,7 @@ test("renders BudgetAchievement component", () => {
   render(<BudgetAchievement />);
 
   const title = screen.getByText("Budget achievement");
-  const amount = screen.getByText("$1,800.00");
+  const amount = screen.getByText("$ 1,800");
   const achievements = screen.getByText("5 achievements");
   const chart = screen.getByTestId("chart");
 
