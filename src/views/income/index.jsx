@@ -20,67 +20,92 @@ import dayjs from "dayjs";
 
 function Income() {
   const theme = useTheme();
+  const [addCategory, setAddCategory] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [dateTime, setDateTime] = React.useState(null);
   const [amount, setAmount] = React.useState("");
   const [note, setNote] = React.useState("");
-  const incomeData = [
+  const dataList = [
     {
       category: "Salary",
+      categoryKey: "01",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Business",
+      categoryKey: "02",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Gifts",
+      categoryKey: "03",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Extra Income",
+      categoryKey: "04",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Loan",
+      categoryKey: "05",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Parental Leave",
+      categoryKey: "06",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Insurance Payout",
+      categoryKey: "07",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
       category: "Adjustment",
+      categoryKey: "08",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
   ];
+  const [incomeData, setIncomeData] = React.useState(dataList);
+
+  const categoryList = [
+    { key: "01", label: "Salary" },
+    { key: "02", label: "Business" },
+    { key: "03", label: "Gifts" },
+    { key: "04", label: "Extra Income" },
+    { key: "05", label: "Loan" },
+    { key: "06", label: "Parental Leave" },
+    { key: "07", label: "Insurance Payout" },
+    { key: "08", label: "Adjustment" },
+  ];
+
+  const onChangeCategory = (event) => {
+    setCategory(event.target.value);
+    const filterIncome = dataList.filter(
+      (item) => item.categoryKey === event.target.value
+    );
+    setIncomeData(filterIncome);
+  };
 
   const handleSubmit = () => {
-    // Handle form submission here, e.g., send data to server
-    console.log("Category:", category);
-    console.log("Date Time:", dateTime);
-    console.log("Amount:", amount);
-    console.log("Note:", note);
+    //
   };
 
   return (
@@ -138,10 +163,13 @@ function Income() {
                     borderRadius: "5px",
                   },
                 }}
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => setAddCategory(e.target.value)}
               >
-                <MenuItem value="category1">Category 1</MenuItem>
-                <MenuItem value="category2">Category 2</MenuItem>
+                {categoryList.map((item, index) => (
+                  <MenuItem key={index} value={item.key}>
+                    {item.label}
+                  </MenuItem>
+                ))}
               </TextField>
             </Grid2>
             <Grid2 size={{ sm: 12, md: 4 }}>
@@ -245,14 +273,19 @@ function Income() {
               fullWidth
               size="small"
               sx={{
+                backgroundColor: "white",
+                borderRadius: "5px",
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "5px",
                 },
               }}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={onChangeCategory}
             >
-              <MenuItem value="category1">Category 1</MenuItem>
-              <MenuItem value="category2">Category 2</MenuItem>
+              {categoryList.map((item, index) => (
+                <MenuItem key={index} value={item.key}>
+                  {item.label}
+                </MenuItem>
+              ))}
             </TextField>
           </Grid2>
           <Grid2 size={{ sm: 12, md: 3 }}></Grid2>
@@ -261,6 +294,8 @@ function Income() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 sx={{
+                  backgroundColor: "white",
+                  borderRadius: "5px",
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "5px",
                   },
