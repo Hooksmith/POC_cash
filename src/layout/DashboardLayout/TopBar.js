@@ -5,9 +5,10 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, Divider, Menu, MenuItem } from "@mui/material";
 import { useTheme } from "@emotion/react";
+import LogoutDialog from "../../components/LogoutDialog";
 
 const pages = [
   { title: "Home", path: "/home" },
@@ -16,9 +17,24 @@ const pages = [
   { title: "Budgets", path: "/budget" },
 ];
 export default function Topbar() {
+  const navigate = useNavigate();
   const theme = useTheme();
-  const [activeMenu, setActiveMenu] = React.useState(0);
+  const location = useLocation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleConfirm = () => {
+    navigate('/login');
+    setOpen(false);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -28,13 +44,17 @@ export default function Topbar() {
     setAnchorElNav(null);
   };
 
-  const handleClickMenu = (idex) => {
-    setActiveMenu(idex);
+  const handleClickMenu = () => {
     setAnchorElNav(null);
   };
 
   return (
     <AppBar position="fixed" sx={{ boxShadow: "none" }}>
+      <LogoutDialog
+        open={open}
+        onClose={handleClose}
+        onConfirm={handleConfirm}
+      />
       <Toolbar
         sx={{
           backgroundColor: "white",
@@ -107,7 +127,7 @@ export default function Topbar() {
                 padding: "12px 30px",
                 textTransform: "capitalize",
                 color:
-                  activeMenu === index
+                location.pathname === page.path
                     ? theme.palette.primary.main
                     : theme.palette.text.primary,
               }}
@@ -136,6 +156,7 @@ export default function Topbar() {
         />
         <Button
           color="inherit"
+          onClick={handleOpen}
           sx={{
             fontSize: "16px",
             lineHeight: "24px",

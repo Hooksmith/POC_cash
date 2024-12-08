@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   List,
   ListItem,
@@ -19,7 +19,9 @@ import LogoutDialog from "../../components/LogoutDialog";
 // ----------------------------------------------------------------------
 
 function NavBar() {
+  const navigate = useNavigate();
   const theme = useTheme();
+  const location = useLocation();
 
   const [open, setOpen] = React.useState(false);
 
@@ -32,7 +34,7 @@ function NavBar() {
   };
 
   const handleConfirm = () => {
-    // Handle logout logic here
+    navigate('/login');
     setOpen(false);
   };
 
@@ -61,7 +63,10 @@ function NavBar() {
                   fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "30px",
-                  color: theme.palette.text.secondary,
+                  color:
+                  location.pathname === "/edit-profile"
+                      ? theme.palette.primary.main
+                      : theme.palette.text.primary,
                 }}
               >
                 Account Setting
@@ -81,7 +86,10 @@ function NavBar() {
                   fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "30px",
-                  color: theme.palette.text.secondary,
+                  color:
+                  location.pathname === "/category"
+                      ? theme.palette.primary.main
+                      : theme.palette.text.primary,
                 }}
               >
                 Category
