@@ -35,21 +35,21 @@ function LogoutDialog({ open, onClose, onConfirm }) {
             </Typography>
           </Box>
         </DialogContent>
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", alignItems:'center', justifyContent:'space-evenly' }}>
+          <Button onClick={onConfirm} color="primary" variant="outlined" sx={{px:5}}>
+            Yes
+          </Button>
           <Button
             onClick={onClose}
             sx={{
-              backgroundColor: "yellow",
+              backgroundColor: "#FCE444",
               color: "black",
               borderColor: "transparent",
+              px:5
             }}
-            borderColor="yellow"
             variant="outlined"
           >
             No
-          </Button>
-          <Button onClick={onConfirm} color="primary" variant="outlined">
-            Yes
           </Button>
         </Box>
       </Box>

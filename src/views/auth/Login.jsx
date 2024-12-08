@@ -50,7 +50,8 @@ function LoginForm() {
           <Box
             sx={{
               backgroundColor: theme.palette.primary.main,
-              minHeight: "100%",
+              minHeight: "100vh",
+              maxHeight: "100%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
