@@ -154,7 +154,6 @@ function TransactionTable() {
                   <TableCell>{transaction.amount}</TableCell>
                   <TableCell>
                     <StatusPill label={transaction.status} />
-                    {/* <Chip label={transaction.status} /> */}
                   </TableCell>
                 </TableRow>
               ))}
@@ -172,18 +171,17 @@ function TransactionTable() {
       >
         <Pagination
           count={10}
-          // size="small"
           siblingCount={0}
           variant="outlined"
           shape="rounded"
           sx={{
             "& .MuiPaginationItem-root": {
-              backgroundColor: "white", // Set background color
-              color: "black", // Set text color
+              backgroundColor: "white",
+              color: "black",
               fontSize: { xs: 12, sm: 14, md: 16 },
             },
             "& .MuiPaginationItem-root.Mui-selected": {
-              backgroundColor: "white", // Set color for selected page
+              backgroundColor: "white",
               color: "green",
               borderColor: "green",
               fontSize: { xs: 12, sm: 14, md: 16 },

@@ -85,13 +85,13 @@ function CategoryManagement() {
                       p: 1,
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center", // Added to center the image horizontally
+                      justifyContent: "center",
                     }}
                   >
                     <Box
                       component="img"
                       alt="logo"
-                      src="/briefcase.png"
+                      src="/transport.png"
                       width={24}
                       height={24}
                       sx={{ objectFit: "scale-down" }}

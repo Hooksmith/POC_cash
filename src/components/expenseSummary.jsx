@@ -5,8 +5,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Chart } from "react-google-charts";
 import { useTheme } from "@mui/material";
-// import { PieChart } from "react-google-charts";
-// import { PieChart } from "google-charts";
 
 function ExpenseSummary() {
   const theme = useTheme();
@@ -48,10 +46,7 @@ function ExpenseSummary() {
           <Typography variant="subtitle1" fontWeight="bold">
             Your Spending Summary
           </Typography>
-          {/* <Typography variant="body2">This Week</Typography>   */}
         </Box>
-
-        {/* <Typography variant="h4">$1,800.00</Typography> */}
         <Typography
           sx={{
             color: theme.palette.primary.main,

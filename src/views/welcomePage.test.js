@@ -7,5 +7,5 @@ test("renders WelcomePage correctly", () => {
   const logoImage = screen.getByAltText("DocCast Logo");
 
   expect(logoImage).toBeInTheDocument();
-  expect(logoImage).toHaveStyle({ width: "50%" }); // Adjust the width assertion as needed
+  expect(logoImage).toHaveStyle({ width: "50%" });
 });

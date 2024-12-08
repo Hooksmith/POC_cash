@@ -11,10 +11,9 @@ function VerifyCode() {
 
   const handleInputChange = (event, index) => {
     const newOtp = [...otp];
-    newOtp[index] = event.target.value.slice(0, 1); // Limit input to one digit
+    newOtp[index] = event.target.value.slice(0, 1);
     setOtp(newOtp);
 
-    // Focus on the next input field if the current input is full
     if (newOtp[index] !== "" && index < 3) {
       inputRefs.current[index + 1].focus();
     }

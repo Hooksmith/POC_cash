@@ -110,7 +110,7 @@ function CreateBudget() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-end", // Align items to the end
+            alignItems: "flex-end",
           }}
         >
           <Button

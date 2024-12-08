@@ -5,7 +5,7 @@ function WelcomePage() {
     <Box
       sx={{
         backgroundColor: "green",
-        minHeight: "100vh", // Ensures the green background fills the entire screen height
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -14,7 +14,7 @@ function WelcomePage() {
       <Box
         sx={{
           backgroundColor: "white",
-          width: { xs: "80%", md: "400px" }, // Responsive width
+          width: { xs: "80%", md: "400px" },
           padding: 2,
           borderRadius: 2,
           display: "flex",
