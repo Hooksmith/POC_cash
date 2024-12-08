@@ -46,6 +46,17 @@ function ThemeConfig({ children }) {
           },
         },
       },
+      MuiTableCell: {
+        styleOverrides: {
+          head: {
+            textTransform: "uppercase",
+            color: "#6B7280",
+            fontSize: "12px",
+            lineHeight: "18px",
+            fontWeight: 600,
+          },
+        },
+      },
     },
   });
 

@@ -16,7 +16,11 @@ function DashboardHeader() {
       spacing={2}
     >
       <Grid2 size={{ xs: 12, md: 6 }}>
-        <Typography variant="h5" fontWeight="700">
+        <Typography
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+        >
           My Dashboard
         </Typography>
       </Grid2>

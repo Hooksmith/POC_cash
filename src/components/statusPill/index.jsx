@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import "./statusPill.css";
 
 function StatusPill({ label }) {
-  console.log("label::", label);
   const mode = () => {
     if (label === "Completed") {
       return "success";

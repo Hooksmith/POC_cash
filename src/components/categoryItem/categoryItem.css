@@ -1,0 +1,20 @@
+.category-icon {
+    &.salary { background-color: #019267}
+    &.business { background-color: #F8B400;}
+    &.gifts { background-color: #FE218B}
+    &.extra-income { background-color: #5FD068;}
+    &.loan { background-color: #EB5353;}
+    &.parental-leave { background-color: #006E7F;}
+    &.insurance-payout { background-color: #4D96FF;}
+    &.adjustment { background-color: #A97155;}
+}
+.category-label {
+    &.salary { color: #019267}
+    &.business { color: #F8B400;}
+    &.gifts { color: #FE218B}
+    &.extra-income { color: #5FD068;}
+    &.loan { color: #EB5353;}
+    &.parental-leave { color: #006E7F;}
+    &.insurance-payout { color: #4D96FF;}
+    &.adjustment { color: #A97155;}
+}

@@ -38,18 +38,43 @@ function Income() {
       amount: 5000000,
     },
     {
-      category: "Salary",
+      category: "Gifts",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
     {
-      category: "Business",
+      category: "Extra Income",
+      date: "03 June 2022",
+      description: "Here is my income",
+      amount: 5000000,
+    },
+    {
+      category: "Loan",
+      date: "03 June 2022",
+      description: "Here is my income",
+      amount: 5000000,
+    },
+    {
+      category: "Parental Leave",
+      date: "03 June 2022",
+      description: "Here is my income",
+      amount: 5000000,
+    },
+    {
+      category: "Insurance Payout",
+      date: "03 June 2022",
+      description: "Here is my income",
+      amount: 5000000,
+    },
+    {
+      category: "Adjustment",
       date: "03 June 2022",
       description: "Here is my income",
       amount: 5000000,
     },
   ];
+
   const handleSubmit = () => {
     // Handle form submission here, e.g., send data to server
     console.log("Category:", category);
@@ -64,13 +89,18 @@ function Income() {
     >
       <Box sx={{ width: { xs: "95%", md: "80%" }, mt: 4, mb: 4 }}>
         <Typography
-          sx={{ textAlign: "start", mb: 4 }}
-          variant="h4"
-          fontWeight="600"
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+          sx={{ mb: 4 }}
         >
           My Income
         </Typography>
-        <Typography sx={{ textAlign: "start" }} variant="h6" fontWeight="600">
+        <Typography
+          variant="h6"
+          fontWeight="600"
+          color={theme.palette.grey[900]}
+        >
           Transaction Income
         </Typography>
       </Box>
@@ -84,11 +114,15 @@ function Income() {
         }}
       >
         <Box sx={{ px: { xs: 2, md: 8 }, py: { xs: 2, md: 4 } }}>
-          <Typography variant="h6" fontWeight="500">
+          <Typography
+            variant="h6"
+            fontWeight="500"
+            color={theme.palette.grey[900]}
+          >
             Please Input Your Income
           </Typography>
           <Grid2 container sx={{ mb: 4, mt: 3 }} spacing={2}>
-            <Grid2 size={{ sm: 12, md: 3 }}>
+            <Grid2 size={{ sm: 12, md: 4 }}>
               <InputLabel sx={{ fontSize: "14px", mb: 1 }}>
                 Choose Category
               </InputLabel>
@@ -97,7 +131,13 @@ function Income() {
                 value={category}
                 size="small"
                 fullWidth
-                sx={{ minWidth: 200, backgroundColor: "white" }}
+                sx={{
+                  minWidth: 200,
+                  backgroundColor: "white",
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "5px",
+                  },
+                }}
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <MenuItem value="category1">Category 1</MenuItem>
@@ -111,8 +151,11 @@ function Income() {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
                   sx={{
-                    minWidth: "300px",
+                    width: "100%",
                     backgroundColor: "white",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "5px",
+                    },
                   }}
                   slotProps={{ textField: { size: "small" } }}
                   value={dateTime}
@@ -123,38 +166,48 @@ function Income() {
                 />
               </LocalizationProvider>
             </Grid2>
+            <Grid2 size={{ sm: 12, md: 12 }}>
+              <InputLabel sx={{ fontSize: "14px", mb: 1 }}>Amount</InputLabel>
+              <TextField
+                type="number"
+                fullWidth
+                size="small"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                sx={{
+                  mb: 2,
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "5px",
+                  },
+                }}
+              />
+            </Grid2>
+            <Grid2 size={{ sm: 12, md: 12 }}>
+              <InputLabel sx={{ fontSize: "14px", mb: 1 }}>
+                Note (Optional)
+              </InputLabel>
+
+              <TextField
+                multiline
+                fullWidth
+                size="small"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                sx={{
+                  mb: 2,
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "5px",
+                  },
+                }}
+              />
+            </Grid2>
           </Grid2>
-          <Box>
-            <InputLabel sx={{ fontSize: "14px", mb: 1 }}>Amount</InputLabel>
-            <TextField
-              type="number"
-              fullWidth
-              size="small"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-          </Box>
 
-          <Box>
-            <InputLabel sx={{ fontSize: "14px", mb: 1 }}>
-              Note (Optional)
-            </InputLabel>
-
-            <TextField
-              multiline
-              fullWidth
-              size="small"
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-          </Box>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-end", // Align items to the end
+              alignItems: "flex-end",
             }}
           >
             <Button
@@ -170,9 +223,15 @@ function Income() {
           </Box>
         </Box>
       </Box>
+
       <Box sx={{ width: { xs: "95%", md: "80%" }, mt: 6 }}>
-        <Typography variant="h4" fontWeight="600">
-          Filter Income
+        <Typography
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+          sx={{ mb: 4 }}
+        >
+          My Income
         </Typography>
 
         <Grid2 container spacing={2} sx={{ mb: 4, mt: 3 }}>
@@ -185,7 +244,11 @@ function Income() {
               value={category}
               fullWidth
               size="small"
-              sx={{ minWidth: 200, backgroundColor: "white" }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "5px",
+                },
+              }}
               onChange={(e) => setCategory(e.target.value)}
             >
               <MenuItem value="category1">Category 1</MenuItem>
@@ -198,8 +261,9 @@ function Income() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 sx={{
-                  minWidth: "300px",
-                  backgroundColor: "white",
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "5px",
+                  },
                 }}
                 slotProps={{ textField: { size: "small" } }}
                 value={dateTime}
@@ -212,6 +276,7 @@ function Income() {
           </Grid2>
         </Grid2>
       </Box>
+
       <Box
         sx={{
           width: { xs: "95%", md: "80%" },
@@ -255,12 +320,12 @@ function Income() {
           shape="rounded"
           sx={{
             "& .MuiPaginationItem-root": {
-              backgroundColor: "white", // Set background color
-              color: "black", // Set text color
+              backgroundColor: "white",
+              color: "black",
               fontSize: { xs: 12, sm: 14, md: 16 },
             },
             "& .MuiPaginationItem-root.Mui-selected": {
-              backgroundColor: "white", // Set color for selected page
+              backgroundColor: "white",
               color: "green",
               borderColor: "green",
               fontSize: { xs: 12, sm: 14, md: 16 },
