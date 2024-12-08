@@ -48,7 +48,7 @@ function BudgetAchievement() {
           <Typography
             variant="span"
             sx={{
-              color: theme.palette.grey[300],
+              color: theme.palette.grey[200],
             }}
           >
             .{splitAmount()[1]}

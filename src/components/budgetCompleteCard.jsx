@@ -1,31 +1,29 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import IconButton from "@mui/material/IconButton";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
-import { useTheme } from "@emotion/react";
+import IconButton from "@mui/material/IconButton";
+import { Card, useTheme } from "@mui/material";
+import { formatMoney } from "../utils";
 
-function BudgetProgress({
-  icon,
-  title,
-  goalAmount,
-  progress,
-  remainingAmount,
-  onClickProgress,
-}) {
+function BudgetCompleteCard({ title, amount, progress, onClickComplete }) {
   const theme = useTheme();
-
   return (
-    <Card sx={{ borderRadius: "10px" }} onClick={onClickProgress}>
+    <Card
+      sx={{
+        borderRadius: "10px",
+        border: `1px solid ${theme.palette.grey[100]}`,
+      }}
+      onClick={onClickComplete}
+    >
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          backgroundColor: "#F8F8F8",
+          backgroundColor: theme.palette.grey[300],
           px: 2,
           py: 2,
         }}
@@ -34,24 +32,6 @@ function BudgetProgress({
           {title}
         </Typography>
         <Box>
-          <IconButton>
-            <Box
-              component="img"
-              alt="logo"
-              src="/edit.png"
-              width={24}
-              sx={{ objectFit: "scale-down" }}
-            />
-          </IconButton>
-          <IconButton>
-            <Box
-              component="img"
-              alt="logo"
-              src="/delete.png"
-              width={24}
-              sx={{ objectFit: "scale-down" }}
-            />
-          </IconButton>
           <IconButton>
             <Box
               component="img"
@@ -76,7 +56,7 @@ function BudgetProgress({
         <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
           <Box
             sx={{
-              backgroundColor: "green",
+              backgroundColor: theme.palette.primary.main,
               px: 2,
               py: 1,
               borderRadius: "12px",
@@ -95,11 +75,27 @@ function BudgetProgress({
           </Box>
         </Box>
         <Box>
-          <Typography variant="body1" fontWeight="500">
+          <Typography
+            fontWeight="500"
+            color={theme.palette.grey[400]}
+            textTransform="uppercase"
+            sx={{ fontSize: "12px" }}
+          >
             {title}
           </Typography>
-          <Typography variant="h6" fontWeight="400">
-            Amount: ${goalAmount}
+          <Typography
+            variant="body2"
+            fontWeight="400"
+            color={theme.palette.grey[400]}
+          >
+            Amount:{" "}
+            <Typography
+              variant="span"
+              sx={{ fontSize: "28px", color: theme.palette.grey[800] }}
+            >
+              {" "}
+              {formatMoney(amount, "$")}
+            </Typography>
           </Typography>
         </Box>
       </Box>
@@ -123,24 +119,24 @@ function BudgetProgress({
             borderRadius: 5,
             [`&.${linearProgressClasses.colorPrimary}`]: {
               backgroundColor: theme.palette.grey[200],
-              ...theme.applyStyles("dark", {
-                backgroundColor: theme.palette.grey[800],
-              }),
             },
             [`& .${linearProgressClasses.bar}`]: {
               borderRadius: 5,
-              backgroundColor: "#1a90ff",
-              ...theme.applyStyles("dark", {
-                backgroundColor: "#308fe8",
-              }),
+              backgroundColor: theme.palette.warning.main,
             },
           }}
         />
-        <Typography variant="body2" sx={{ mt: 2 }} fontWeight="500">
-          ${remainingAmount} remaining to complete goal
+        <Typography
+          variant="body2"
+          sx={{ mt: 2 }}
+          fontWeight="500"
+          color={theme.palette.grey[400]}
+        >
+          Congrats, Goal completed
         </Typography>
       </Box>
     </Card>
   );
 }
-export default BudgetProgress;
+
+export default BudgetCompleteCard;

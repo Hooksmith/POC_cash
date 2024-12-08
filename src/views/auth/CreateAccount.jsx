@@ -60,18 +60,28 @@ function CreateAccount() {
           <Box
             sx={{
               backgroundColor: theme.palette.primary.main,
-              minHeight: "100%",
+              minHeight: "100vh",
+              maxHeight: "100%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <Box
-              component="img"
-              src="/logo.png"
-              alt="DocCast Logo"
-              sx={{ width: "100px", height: "auto", marginBottom: 2 }}
-            />
+              sx={{
+                backgroundColor: theme.palette.grey[0],
+                px: 4,
+                py: 2,
+                borderRadius: "20px",
+              }}
+            >
+              <Box
+                component="img"
+                src="/logo.png"
+                alt="DocCast Logo"
+                sx={{ width: "145px", height: "auto" }}
+              />
+            </Box>
           </Box>
         </Grid2>
         <Grid2 size={{ xs: 12, md: 6 }} sx={{ p: 8 }}>
@@ -226,7 +236,15 @@ function CreateAccount() {
               alignItems: "flex-end",
             }}
           >
-            <Button type="submit" variant="contained">
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              sx={{
+                mb: 2,
+                px: 8,
+              }}
+            >
               Create an Account
             </Button>
           </Box>

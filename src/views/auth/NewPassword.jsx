@@ -156,10 +156,10 @@ function NewPassword() {
             <Button
               type="submit"
               variant="contained"
+              size="large"
               sx={{
                 mb: 2,
                 px: 10,
-                py: 2,
               }}
             >
               Save

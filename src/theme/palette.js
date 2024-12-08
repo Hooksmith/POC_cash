@@ -32,7 +32,7 @@ const SUCCESS = {
 const WARNING = {
   lighter: "#FFF7CD",
   light: "#FFE16A",
-  main: "#FFC107",
+  main: "#FFCA3A",
   dark: "#B78103",
   darker: "#7A4F01",
 };
@@ -47,9 +47,9 @@ const ERROR = {
 const GREY = {
   0: "#FFFFFF",
   100: "#E1E9EE", //
-  200: "#C4CFD7",
-  300: "#DFE3E8",
-  400: "#C4CDD5",
+  200: "#C4CFD7", //
+  300: "#F8F8F8", //
+  400: "#93A1AA", ///
   500: "#D9D9D9", //
   600: "#757D8A",
   700: "#454F5B",

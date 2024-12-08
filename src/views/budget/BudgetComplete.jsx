@@ -3,10 +3,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Button, Card, Grid2 } from "@mui/material";
+import { Button, Card, Grid2, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { formatMoney } from "../../utils";
 
 function BudgetComplete() {
+  const theme = useTheme();
   const navigate = useNavigate();
 
   const budgetData = {
@@ -26,7 +28,12 @@ function BudgetComplete() {
       }}
     >
       <Box sx={{ width: { xs: "95%", md: "60%" }, mt: 4, mb: 4 }}>
-        <Typography sx={{ textAlign: "start" }} variant="h4" fontWeight="600">
+        <Typography
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+          sx={{ mb: 4 }}
+        >
           My Budget
         </Typography>
       </Box>
@@ -40,6 +47,7 @@ function BudgetComplete() {
         >
           <Button
             variant="text"
+            color={theme.palette.grey[900]}
             startIcon={<ArrowBackIosIcon />}
             onClick={() => {
               navigate(-1);
@@ -52,7 +60,7 @@ function BudgetComplete() {
               <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
                 <Box
                   sx={{
-                    backgroundColor: "green",
+                    backgroundColor: theme.palette.primary.main,
                     p: 1,
                     borderRadius: "50%",
                     justifyContent: "center",
@@ -61,17 +69,27 @@ function BudgetComplete() {
                   <Box
                     component="img"
                     alt="logo"
-                    src="/briefcase.png"
-                    width={25}
-                    height={25}
+                    src="/business.png"
+                    width={24}
+                    height={19}
                     sx={{ objectFit: "scale-down" }}
                   />
                 </Box>
-                <Typography variant="h4" sx={{ ml: 1 }} fontWeight="600">
+                <Typography
+                  variant="h4"
+                  sx={{ ml: 1 }}
+                  fontWeight="600"
+                  color={theme.palette.primary.main}
+                >
                   {budgetData.categoryName}
                 </Typography>
               </Box>
-              <Typography variant="h4" fontWeight="600" sx={{ mt: 5, mb: 4 }}>
+              <Typography
+                variant="h4"
+                fontWeight="600"
+                color={theme.palette.warning.main}
+                sx={{ mt: 5, mb: 4 }}
+              >
                 Congrats, Goal completed!
               </Typography>
             </Grid2>
@@ -82,7 +100,7 @@ function BudgetComplete() {
                   variant="determinate"
                   value={70}
                   sx={(theme) => ({
-                    color: "#6DB33F",
+                    color: theme.palette.primary.main,
                   })}
                   size={200}
                   thickness={7}
@@ -114,14 +132,22 @@ function BudgetComplete() {
             <Typography variant="h5" fontWeight="500">
               Budget Goal
             </Typography>
-            <Typography variant="h3" fontWeight="500">
-              $50.00 USD
+            <Typography
+              variant="h3"
+              fontWeight="500"
+              color={theme.palette.primary.main}
+            >
+              {formatMoney(500, "$")} USD
             </Typography>
           </Box>
           <Typography variant="h5" fontWeight="500">
             Description
           </Typography>
-          <Typography variant="h6" fontWeight="400">
+          <Typography
+            variant="h6"
+            fontWeight="400"
+            color={theme.palette.grey[400]}
+          >
             {budgetData.description}
           </Typography>
         </Box>

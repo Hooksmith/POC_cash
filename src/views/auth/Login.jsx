@@ -58,11 +58,20 @@ function LoginForm() {
             }}
           >
             <Box
-              component="img"
-              src="/logo.png"
-              alt="DocCast Logo"
-              sx={{ width: "100px", height: "auto", marginBottom: 2 }}
-            />
+              sx={{
+                backgroundColor: theme.palette.grey[0],
+                px: 4,
+                py: 2,
+                borderRadius: "20px",
+              }}
+            >
+              <Box
+                component="img"
+                src="/logo.png"
+                alt="DocCast Logo"
+                sx={{ width: "145px", height: "auto" }}
+              />
+            </Box>
           </Box>
         </Grid2>
 
@@ -223,10 +232,10 @@ function LoginForm() {
           <Button
             variant="contained"
             type="submit"
+            size="large"
             sx={{
               mb: 2,
-              px: 12,
-              py: 2,
+              px: 8,
             }}
           >
             Sign In

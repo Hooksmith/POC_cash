@@ -1,7 +1,7 @@
 import React from "react";
 import TopBar from "./TopBar";
 import PropTypes from "prop-types";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 

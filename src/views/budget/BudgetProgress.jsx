@@ -3,12 +3,15 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Button, Card, Grid2 } from "@mui/material";
+import { Button, Card, Grid2, useTheme } from "@mui/material";
 import MoneyCard from "../../components/moneyCard";
 import { useNavigate } from "react-router-dom";
+import { formatMoney } from "../../utils";
 
 function BudgetProgress() {
+  const theme = useTheme();
   const navigate = useNavigate();
+
   const budgetData = {
     categoryIcon: "",
     categoryName: "Bag",
@@ -28,9 +31,10 @@ function BudgetProgress() {
     >
       <Box sx={{ width: { xs: "95%", md: "60%" }, mt: 4, mb: 4 }}>
         <Typography
-          sx={{ textAlign: "start", mb: 4 }}
-          variant="h4"
-          fontWeight="600"
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+          sx={{ mb: 4 }}
         >
           My Budget
         </Typography>
@@ -49,6 +53,7 @@ function BudgetProgress() {
         >
           <Button
             variant="text"
+            color={theme.palette.grey[900]}
             startIcon={<ArrowBackIosIcon />}
             onClick={() => {
               navigate(-1);
@@ -61,7 +66,7 @@ function BudgetProgress() {
               <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
                 <Box
                   sx={{
-                    backgroundColor: "green",
+                    backgroundColor: theme.palette.primary.main,
                     p: 1,
                     borderRadius: "50%",
                     justifyContent: "center",
@@ -70,14 +75,19 @@ function BudgetProgress() {
                   <Box
                     component="img"
                     alt="logo"
-                    src="/briefcase.png"
-                    width={25}
-                    height={25}
+                    src="/business.png"
+                    width={24}
+                    height={19}
                     sx={{ objectFit: "scale-down" }}
                   />
                 </Box>
 
-                <Typography variant="h4" sx={{ ml: 1 }} fontWeight="600">
+                <Typography
+                  variant="h4"
+                  sx={{ ml: 1 }}
+                  fontWeight="600"
+                  color={theme.palette.primary.main}
+                >
                   {budgetData.categoryName}
                 </Typography>
               </Box>
@@ -85,8 +95,12 @@ function BudgetProgress() {
                 <Typography variant="h5" fontWeight="500">
                   Budget Goal
                 </Typography>
-                <Typography variant="h2Z" fontWeight="500">
-                  $50.00 USD
+                <Typography
+                  variant="h3"
+                  fontWeight="500"
+                  color={theme.palette.primary.main}
+                >
+                  {formatMoney(500, "$")} USD
                 </Typography>
               </Box>
             </Grid2>
@@ -97,7 +111,7 @@ function BudgetProgress() {
                   variant="determinate"
                   value={70}
                   sx={(theme) => ({
-                    color: "#6DB33F",
+                    color: theme.palette.primary.main,
                   })}
                   size={200}
                   thickness={7}
@@ -128,7 +142,11 @@ function BudgetProgress() {
           <Typography variant="h5" fontWeight="500">
             Description
           </Typography>
-          <Typography variant="h6" fontWeight="400">
+          <Typography
+            variant="h6"
+            fontWeight="400"
+            color={theme.palette.grey[400]}
+          >
             {budgetData.description}
           </Typography>
           <Grid2 container spacing={4} sx={{ mt: 4 }}>

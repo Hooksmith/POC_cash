@@ -103,7 +103,7 @@ function ResetPassword() {
               onChange={onChangeEmail}
             />
 
-            <Button fullWidth type="submit" variant="contained">
+            <Button fullWidth type="submit" variant="contained" size="large">
               Reset Password
             </Button>
           </Box>

@@ -116,7 +116,7 @@ function VerifyCode() {
             ))}
           </Box>
           <Box sx={{ px: 8, pb: 6 }}>
-            <Button fullWidth type="submit" variant="contained">
+            <Button fullWidth type="submit" variant="contained" size="large">
               Verify
             </Button>
           </Box>

@@ -4,13 +4,14 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { Card, Grid2, InputLabel } from "@mui/material";
+import { Card, Grid2, InputLabel, useTheme } from "@mui/material";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 
 function SaveBudget() {
+  const theme = useTheme();
   const navigate = useNavigate();
   const [category, setCategory] = React.useState("");
   const [dateTime, setDateTime] = React.useState(null);
@@ -29,13 +30,18 @@ function SaveBudget() {
     >
       <Box sx={{ width: { xs: "95%", md: "80%" }, mt: 4, mb: 4 }}>
         <Typography
-          sx={{ textAlign: "start", mb: 2 }}
-          variant="h4"
-          fontWeight="600"
+          variant="h5"
+          fontWeight="700"
+          color={theme.palette.grey[900]}
+          sx={{ mb: 4 }}
         >
           My Budget
         </Typography>
-        <Typography sx={{ textAlign: "start" }} variant="h6" fontWeight="600">
+        <Typography
+          variant="h6"
+          fontWeight="600"
+          color={theme.palette.grey[900]}
+        >
           Transaction Budget
         </Typography>
       </Box>
@@ -54,7 +60,13 @@ function SaveBudget() {
               value={category}
               fullWidth
               size="small"
-              sx={{ minWidth: 200, backgroundColor: "white" }}
+              sx={{
+                minWidth: 200,
+                backgroundColor: "white",
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "5px",
+                },
+              }}
               onChange={(e) => setCategory(e.target.value)}
             >
               <MenuItem value="category1">Category 1</MenuItem>
@@ -68,8 +80,11 @@ function SaveBudget() {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateTimePicker
                 sx={{
-                  minWidth: "300px",
+                  width: "100%",
                   backgroundColor: "white",
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "5px",
+                  },
                 }}
                 slotProps={{ textField: { size: "small" } }}
                 value={dateTime}
@@ -89,7 +104,12 @@ function SaveBudget() {
             size="small"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "5px",
+              },
+            }}
           />
         </Box>
 
@@ -103,7 +123,12 @@ function SaveBudget() {
             size="small"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "5px",
+              },
+            }}
           />
         </Box>
         <Box
@@ -113,12 +138,7 @@ function SaveBudget() {
             alignItems: "flex-end",
           }}
         >
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
-            onClick={onClickSave}
-          >
+          <Button variant="contained" sx={{ mt: 2 }} onClick={onClickSave}>
             Save Budget
           </Button>
         </Box>

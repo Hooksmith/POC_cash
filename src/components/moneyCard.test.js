@@ -9,7 +9,7 @@ test("renders MoneyCard correctly", () => {
   render(<MoneyCard icon={icon} title={title} amount={amount} />);
 
   const titleElement = screen.getByText(title);
-  const amountElement = screen.getByText(`$${amount} USD`);
+  const amountElement = screen.getByText(`1,000.00 USD`);
   const iconElement = screen.getByAltText("logo");
 
   expect(titleElement).toBeInTheDocument();
